@@ -108,57 +108,54 @@ div img.cus-img{
   -moz-box-shadow: 1px 1px 2px #e6e6e6;
   box-shadow: 1px 1px 2px #e6e6e6;
   cursor: default;
-  background: #fff url(../images/bgimg.jpg) no-repeat center center;
+  /*background: #fff url(../images/bgimg.jpg) no-repeat center center;*/
 }
 
 .about-container img {
   display: block;
   position: relative;
+  width: 280px;
+  height: 180px;
 }
 
 .about-container .about-content {
-  background: rgba(0, 0, 0, 0.9);
-  height: 0;
-  -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=50)";
-  filter: alpha(opacity=50);
-  opacity: 0.5;
-  width: 361px;
-  overflow: hidden;
-  -webkit-transform: rotate(-33.5deg) translate(-112px, 166px);
-  -moz-transform: rotate(-33.5deg) translate(-112px, 166px);
-  -o-transform: rotate(-33.5deg) translate(-112px, 166px);
-  -ms-transform: rotate(-33.5deg) translate(-112px, 166px);
-  transform: rotate(-33.5deg) translate(-112px, 166px);
-  -webkit-transform-origin: 0% 100%;
-  -moz-transform-origin: 0% 100%;
-  -o-transform-origin: 0% 100%;
-  -ms-transform-origin: 0% 100%;
-  transform-origin: 0% 100%;
-  -webkit-transition: all 0.4s ease-in-out 0.3s;
-  -moz-transition: all 0.4s ease-in-out 0.3s;
-  -o-transition: all 0.4s ease-in-out 0.3s;
-  transition: all 0.4s ease-in-out 0.3s;
+  width: 280px;
+  height: 0px;
   position: absolute;
   left: 0;
+  top: 0;
+  background: rgba(0, 0, 0, 0.9);
+  overflow: hidden;
+  opacity: 0.5;
+  -webkit-transition: all 0.4s ease-in-out 0s;
+  transition: all 0.4s ease-in-out 0s;
+  -webkit-transform-origin: 0% 100%;
+  transform-origin: 0% 100%;
+  -webkit-transform: rotate(-32.5deg) translate(-91px, 150px) scale(1.18);
+  transform: rotate(-32.5deg) translate(-91px, 150px) scale(1.18);
 }
+
 
 .about-container:hover .about-content {
+  width: 280px;
   height: 120px;
-  width: 300px;
-  -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=90)";
-  filter: alpha(opacity=90);
+  position: absolute;
+  left: 0;
+  top: 30px;
+  background: rgba(0, 0, 0, 0.9);
+  overflow: hidden;
   opacity: 0.9;
-  top: 40px;
   -webkit-transform: rotate(0deg) translate(0, 0);
-  -moz-transform: rotate(0deg) translate(0, 0);
-  -o-transform: rotate(0deg) translate(0, 0);
-  -ms-transform: rotate(0deg) translate(0, 0);
   transform: rotate(0deg) translate(0, 0);
+  /*can add transition in both hover on and off*/
+  /*transition in hover means mouse enter will use this transition*/
+  -webkit-transition: all 0.4s ease-in-out 0.3s;
+  transition: all 0.4s ease-in-out 0.3s;
 }
 
+
 .about-container h2 {
-  background: transparent;
-  margin-top: 5px;
+  margin-top: 0px;
   border-bottom: 1px solid rgba(255, 255, 255, 0.2);
   text-transform: uppercase;
   color: #fff;
@@ -167,17 +164,65 @@ div img.cus-img{
   font-size: 17px;
   padding: 10px;
   background: rgba(0, 0, 0, 0.8);
-  margin: 20px 0 0 0;
 }
 
-/*
 .about-container p {
   font-family: Georgia, serif;
   font-style: italic;
   font-size: 12px;
   position: relative;
   color: #fff;
-  padding: 10px 20px 20px;
   text-align: center;
 }
-*/
+
+.mask-1{
+	/*TODO: need to understand why left right set like this*/
+	left: auto;
+	right: 0;
+	-webkit-transform: rotate(57.5deg) translateX(-180px);
+	transform: rotate(57.5deg) translateX(-180px);
+	-webkit-transform-origin: 100% 0%;
+	transform-origin: 100% 0%;
+	background-color: rgba(0, 0, 0, 0.5);
+	height: 361px;
+	width: 361px;
+	background: rgba(119, 0, 36, 0.5);
+	opacity: 1;
+	-webkit-transition: all 0.3s ease-in-out 0.4s;
+	transition: all 0.3s ease-in-out 0.4s;
+	position: absolute;
+	overflow: hidden;
+	top: 0;
+}
+
+.about-container:hover .mask-1{
+	-webkit-transform: rotate(57.5deg) translateX(1px);
+	transform: rotate(57.5deg) translateX(1px);
+	-webkit-transition: all 0.3s ease-in-out 0s;
+	transition: all 0.3s ease-in-out 0s;
+}
+
+.mask-2{
+	top: auto;
+	bottom: 0;
+	-webkit-transform: rotate(57.5deg) translateX(180px);
+	transform: rotate(57.5deg) translateX(180px);
+	-webkit-transform-origin: 0% 100%;
+	transform-origin: 0% 100%;
+	background-color: rgba(0, 0, 0, 0.5);
+	height: 361px;
+	width: 361px;
+	background: rgba(119, 0, 36, 0.5);
+	opacity: 1;
+	-webkit-transition: all 0.3s ease-in-out 0.4s;
+	transition: all 0.3s ease-in-out 0.4s;
+	position: absolute;
+	overflow: hidden;
+}
+
+.about-container:hover .mask-2{
+	-webkit-transform: rotate(57.5deg) translateX(-1px);
+	transform: rotate(57.5deg) translateX(-1px);
+	-webkit-transition: all 0.3s ease-in-out 0s;
+	transition: all 0.3s ease-in-out 0s;
+}
