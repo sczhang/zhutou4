@@ -87,21 +87,48 @@ function ($scope, $routeParams){
   */
 }]);
 
-function MainCntl($scope, $route, $sce) {
+function MainCntl($scope, $route, $sce, $location) {
 
   //utility method
   $scope.trustSrc = function(src) {
     return $sce.trustAsResourceUrl(src);
-  }
+  };
 
-  $scope.$route = $route;
-  $scope.tabs = [{href:"#", text:"Home"},{href:"#Primary", text:"Primary"},{href:"#Social", text:"Social"}];
+//  $scope.$route = $route;
+  $scope.isActive = function(){
+	  if ("#" + $location.$$path === this.tab.url) {
+		  return true; 
+	  }
+      return false;  
+  };
+  $scope.tabs = [
+    {
+      url:"#/", 
+      text:"Home"
+      , class: "active"
+    },
+    {
+      url:"#/Primary", 
+      text:"Primary"
+      , class: ""
+    },
+    {
+      url:"#/Social", 
+      text:"Social"
+      , class: ""
+    }
+  ];
+  $scope.$on("$routeChangeSuccess", function (scope, next, current) {
+      $scope.transitionState = "active";
+  });
 }
 
 function PrimaryCntl($scope) {
   $scope.name = "PrimaryCntl";
+  console.log("PrimaryCntl: transitionState: " + $scope.transitionState);
 }
 
 function SocialCntl($scope) {
   $scope.name = "SocialCntl";
+  console.log("SocialCntl: transitionState: " + $scope.transitionState);
 }

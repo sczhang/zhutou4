@@ -226,3 +226,23 @@ div img.cus-img{
 	-webkit-transition: all 0.3s ease-in-out 0s;
 	transition: all 0.3s ease-in-out 0s;
 }
+
+.view {
+	/* position: relative; */
+    -moz-transition-property: opacity;
+    -o-transition-property: opacity;
+    -webkit-transition-property: opacity;
+    transition-property: opacity;
+    -moz-transition-duration: 1.4s;
+    -o-transition-duration: 1.4s;
+    -webkit-transition-duration: 1.4s;
+    transition-duration: 1.4s
+}
+
+.view.active {
+	opacity: 0.2;
+}
+
+.view:not(.active){
+	opacity: 0;
+}
