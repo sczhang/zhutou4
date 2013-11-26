@@ -226,3 +226,38 @@ div img.cus-img{
 	-webkit-transition: all 0.3s ease-in-out 0s;
 	transition: all 0.3s ease-in-out 0s;
 }
+
+/* video detail page css */
+.videoDetailHeader h2{
+	width:100px;
+	margin: 10px auto;
+	color: black;
+    text-shadow:2px 2px 2px grey;
+    text-align:center;
+    font:bold 5em Edwardian Script ITC;
+}
+.videoDetailContent{
+    border-bottom: 1px solid #ddd;
+}
+.videoDetailContent iframe{
+	display: block;
+	/*width: 600px;
+	height: 400px;*/
+	margin: 0 auto 20px;
+}
+.thirdParty{
+	margin-top:20px;
+	text-align: center;
+}
+.thirdParty ul{
+	display: inline-block;
+    list-style: none;
+}
+.thirdParty ul li{
+	display: inline-block;
+	width: 100px;
+	margin-right:20px;
+}
+.videoDetailDesc{
+	
+}
