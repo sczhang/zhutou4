@@ -1,5 +1,15 @@
 var ngViewExample = angular.module('ngViewExample', ['ngRoute', 'ngSanitize'])
 
+/*
+ngViewExample.directive("facebook", function(){
+	return {
+		restrict: "E",
+		//template: '<div class="fb-share-button" data-href="http://developers.facebook.com/docs/plugins/" data-type="button_count"></div>'
+		template: "<p>zk</p>"
+	}
+});
+*/
+
 ngViewExample.config(function($routeProvider) {
   $routeProvider.when('/', {
     templateUrl: 'videoList.html',
@@ -77,14 +87,22 @@ function ($scope, $routeParams){
     $scope.video = {id:null, name:"not existed", src:""};
   }
   
-  /*
-  // TODO how to add js to control page?
-  window.scrollTo(0,0);
-  $( document ).ready(function() {
-    // Handler for .ready() called.
-    window.scrollTo(0,0);
+  //TODO how to add js to ng-view?
+  // like domready
+  $scope.$on('$viewContentLoaded', function() {
+	  //facebook
+	  /*
+	  (function(d, s, id) {
+		  var js, fjs = d.getElementsByTagName(s)[0];
+		  if (d.getElementById(id)) return;
+		  js = d.createElement(s); js.id = id;
+		  js.src = "//connect.facebook.net/en_US/all.js#xfbml=1";
+		  fjs.parentNode.insertBefore(js, fjs);
+		}(document, 'script', 'facebook-jssdk'));
+	  */
+	  //twitter
+	  //!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="https://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");
   });
-  */
 }]);
 
 function MainCntl($scope, $route, $sce, $location) {
