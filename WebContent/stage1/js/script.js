@@ -1,4 +1,4 @@
-var ngViewExample = angular.module('ngViewExample', ['ngRoute', 'ngSanitize'])
+var zhutou = angular.module('zhutou', ['ngRoute', 'ngSanitize'])
 
 /*
 ngViewExample.directive("facebook", function(){
@@ -10,18 +10,18 @@ ngViewExample.directive("facebook", function(){
 });
 */
 
-ngViewExample.config(function($routeProvider) {
+zhutou.config(function($routeProvider) {
   $routeProvider.when('/', {
-    templateUrl: 'videoList.html',
-    controller: "ThumbnailCntl"
+    templateUrl: 'home.html',
+    controller: "HomeCntl"
   })
-  .when('/Primary', {
-    templateUrl: 'primary.html',
-    controller: PrimaryCntl
+  .when('/Videos', {
+    templateUrl: 'videoList.html',
+    controller: 'VideosCntl'
   })
   .when('/Social', {
     templateUrl: 'social.html',
-    controller: SocialCntl
+    controller: 'SocialCntl'
   })
   .when('/Video/:videoId', {
     templateUrl: 'videoDetail.html',
@@ -29,7 +29,7 @@ ngViewExample.config(function($routeProvider) {
   });
 });
 
-ngViewExample.controller('ThumbnailCntl', ['$scope',
+zhutou.controller('VideosCntl', ['$scope',
   function($scope) {
     var thumbnails = [
       {id:1,src:"imgs/img1.jpg",label:"img1", desc:"Other YouTube users can post comments on your videos and your channel (if the Discussion tab is enabled for your channel). Since it's your content, you have ...",link:"#Video/1"},
@@ -59,7 +59,7 @@ ngViewExample.controller('ThumbnailCntl', ['$scope',
     
   }]);
 
-ngViewExample.controller('VideoDetailCntl', ['$scope', '$routeParams', 
+zhutou.controller('VideoDetailCntl', ['$scope', '$routeParams', 
 function ($scope, $routeParams){
   var videos = [
     {id:1, name:"video1", src:"//www.youtube.com/embed/ZS6V0Sx25Kk"},
@@ -126,6 +126,11 @@ function MainCntl($scope, $route, $sce, $location) {
       , class: "active"
     },
     {
+      url:"#/Videos", 
+      text:"Videos"
+      , class: ""
+    },
+    {
       url:"#/Primary", 
       text:"Primary"
       , class: ""
@@ -141,7 +146,11 @@ function MainCntl($scope, $route, $sce, $location) {
   });
 }
 
-function PrimaryCntl($scope) {
+function HomeCntl($scope){
+
+};
+
+function VideosCntl($scope) {
   $scope.name = "PrimaryCntl";
   console.log("PrimaryCntl: transitionState: " + $scope.transitionState);
 }
