@@ -15,15 +15,19 @@ zhutou.config(function($routeProvider) {
     templateUrl: 'home.html',
     controller: "HomeCntl"
   })
-  .when('/Videos', {
+  .when('/videos', {
     templateUrl: 'videoList.html',
     controller: 'VideosCntl'
   })
-  .when('/Social', {
+  .when('/social', {
     templateUrl: 'social.html',
     controller: 'SocialCntl'
   })
-  .when('/Video/:videoId', {
+  .when('/primary', {
+    templateUrl: 'primary.html',
+    controller: 'PrimaryCntl'
+  })
+  .when('/video/:videoId', {
     templateUrl: 'videoDetail.html',
     controller: "VideoDetailCntl"
   });
@@ -126,17 +130,17 @@ function MainCntl($scope, $route, $sce, $location) {
       , class: "active"
     },
     {
-      url:"#/Videos", 
+      url:"#/videos", 
       text:"Videos"
       , class: ""
     },
     {
-      url:"#/Primary", 
+      url:"#/primary", 
       text:"Primary"
       , class: ""
     },
     {
-      url:"#/Social", 
+      url:"#/social", 
       text:"Social"
       , class: ""
     }
@@ -151,6 +155,11 @@ function HomeCntl($scope){
 };
 
 function VideosCntl($scope) {
+  $scope.name = "VideosCntl";
+  console.log("VideosCntl: transitionState: " + $scope.transitionState);
+}
+
+function PrimaryCntl($scope) {
   $scope.name = "PrimaryCntl";
   console.log("PrimaryCntl: transitionState: " + $scope.transitionState);
 }
