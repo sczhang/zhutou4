@@ -35,7 +35,7 @@
   <div class="toolbar">
     <!-- search input starts -->
     <div class="container-input-toolbar container-input-toolbar-search">
-    	<input type="text" class="form-control" placeholder="Search by...">
+    	<input type="text" ng-model="query" class="form-control" placeholder="Search by...">
     </div>
     <!-- search input ends -->
 
@@ -74,14 +74,14 @@
     <!-- filter by starts -->
   </div>
   
-  <div class="row" ng-repeat="row in rows">
-    <div class="col-sm-6 col-md-4" ng-repeat="thumbnail in row">
+  <div class="row" ng-repeat="videoRow in videos">
+    <div class="col-sm-6 col-md-4" ng-repeat="video in videoRow | videoQuery : query">
       <div class="thumbnail cus-thumbnail">
-        <img class="cus-img" ng-src="{{thumbnail.src}}" alt="...">
+        <img class="cus-img" ng-src="{{video.src}}" alt="...">
         <div class="caption mask">
-          <h3>{{thumbnail.label}}</h3>
-          <p>{{thumbnail.desc}}</p>
-          <a href={{thumbnail.link}} class="" role="button">Enter</a> 
+          <h3>{{video.label}}</h3>
+          <p>{{video.desc}}</p>
+          <a href={{video.link}} class="" role="button">Enter</a> 
         </div>
       </div>
     </div>

@@ -35,7 +35,7 @@ zhutou.config(function($routeProvider) {
 
 zhutou.controller('VideosCntl', ['$scope',
   function($scope) {
-    var thumbnails = [
+    var videosource = [
       {id:1,src:"imgs/img1.jpg",label:"img1", desc:"Other YouTube users can post comments on your videos and your channel (if the Discussion tab is enabled for your channel). Since it's your content, you have ...",link:"#Video/1"},
       {id:2,src:"imgs/img2.jpg",label:"img2",desc:"...",link:"#Video/2"},
       {id:3,src:"imgs/img3.jpg",label:"img3",desc:"desc3",link:"#Video/3"},
@@ -49,17 +49,17 @@ zhutou.controller('VideosCntl', ['$scope',
     ];
     
     var numberPerRow = 3;//TODO user can set this further
-    var rows = [];
+    var videos = [];
     var tempArray = [];
-    for(var i=1; i<=thumbnails.length; i++){
-      tempArray.push(thumbnails[i-1]);
-      if(i%numberPerRow==0||i==thumbnails.length){
-        rows.push(tempArray);
+    for(var i = 1; i <= videosource.length; i++ ){
+      tempArray.push(videosource[ i - 1 ]);
+      if( i % numberPerRow == 0 || i == videosource.length ){
+        videos.push(tempArray);
         tempArray = [];
       }
     }
     
-    $scope.rows = rows;
+    $scope.videos = videos;
     
   }]);
 
@@ -148,7 +148,45 @@ function MainCntl($scope, $route, $sce, $location) {
   $scope.$on("$routeChangeSuccess", function (scope, next, current) {
       $scope.transitionState = "active";
   });
-}
+};
+
+zhutou.filter('videoQuery', function(){
+  return function(input, query){
+
+    if(!input)
+      return [];
+
+    if(
+        !query ||
+        query.length == 0 ||
+        input.length == 0
+      )
+      return input;
+
+    query = query.toLowerCase();
+
+    var vn, vd, 
+        i = 0,
+        out = [];
+
+
+    for ( ; i < input.length; i++ ){
+      vn = ( input[i].label ).toLowerCase();
+      vd = ( input[i].desc ).toLowerCase();
+
+      if(
+        vn.indexOf(query) != -1 ||
+        vd.indexOf(query) != -1
+        )
+      {
+        out.push(input[i]);
+      }
+    }
+
+
+    return out;
+  };
+});
 
 function HomeCntl($scope){
 
@@ -156,6 +194,7 @@ function HomeCntl($scope){
 
 function VideosCntl($scope) {
   $scope.name = "VideosCntl";
+  $scope.query = "";
   console.log("VideosCntl: transitionState: " + $scope.transitionState);
 }
 
