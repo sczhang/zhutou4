@@ -36,16 +36,36 @@ zhutou.config(function($routeProvider) {
 zhutou.controller('VideosCntl', ['$scope',
   function($scope) {
     var videosource = [
-      {id:1,src:"imgs/img1.jpg",label:"img1", desc:"Other YouTube users can post comments on your videos and your channel (if the Discussion tab is enabled for your channel). Since it's your content, you have ...",link:"#Video/1"},
-      {id:2,src:"imgs/img2.jpg",label:"img2",desc:"...",link:"#Video/2"},
-      {id:3,src:"imgs/img3.jpg",label:"img3",desc:"desc3",link:"#Video/3"},
-      {id:4,src:"imgs/img4.jpg",label:"img4",desc:"desc4",link:"#Video/4"},
-      {id:5,src:"imgs/img5.jpg",label:"img5",desc:"desc5",link:"#Video/5"},
-      {id:6,src:"imgs/img6.jpg",label:"img6",desc:"...",link:"#Video/6"},
-      {id:7,src:"imgs/img7.jpg",label:"img7",desc:"...",link:"#Video/7"},
-      {id:8,src:"imgs/img8.jpg",label:"img8",desc:"...",link:"#Video/8"},
-      {id:9,src:"imgs/img9.jpg",label:"img9",desc:"...",link:"#Video/9"},
-      {id:10,src:"imgs/img10.jpg",label:"img10",desc:"...",link:"#Video/10"},
+      {
+        id:1,src:"imgs/img1.jpg",label:"img1", desc:"Other YouTube users can post comments.",link:"#Video/1", date: "2012/4/5", viewed: '5'
+      },
+      {
+        id:2,src:"imgs/img2.jpg",label:"img2",desc:"...",link:"#Video/2", date: "2013/1/15", viewed: '15'
+      },
+      {
+        id:3,src:"imgs/img3.jpg",label:"img3",desc:"desc3",link:"#Video/3", date: "2013/5/7", viewed: '7'
+      },
+      {
+        id:4,src:"imgs/img4.jpg",label:"img4",desc:"desc4",link:"#Video/4", date: "2013/7/1", viewed: '1'
+      },
+      {
+        id:5,src:"imgs/img5.jpg",label:"img5",desc:"desc5",link:"#Video/5", date: "2013/2/26", viewed: '26'
+      },
+      {
+        id:6,src:"imgs/img6.jpg",label:"img6",desc:"...",link:"#Video/6", date: "2011/9/29", viewed: '29'
+      },
+      {
+        id:7,src:"imgs/img7.jpg",label:"img7",desc:"...",link:"#Video/7", date: "2009/11/3", viewed: '3'
+      },
+      {
+        id:8,src:"imgs/img8.jpg",label:"img8",desc:"...",link:"#Video/8", date: "2003/6/2", viewed: '2'
+      },
+      {
+        id:9,src:"imgs/img9.jpg",label:"img9",desc:"...",link:"#Video/9", date: "2013/8/1", viewed: '1'
+      },
+      {
+        id:10,src:"imgs/img10.jpg",label:"img10",desc:"...",link:"#Video/10", date: "2013/9/17"
+      },
     ];
     
     var numberPerRow = 3;//TODO user can set this further
@@ -186,15 +206,60 @@ zhutou.filter('videoQuery', function(){
 
     return out;
   };
-});
+})
+
+// .filter('videoDate', function(){
+//   return function(input, query){
+
+//     if(!input)
+//       return [];
+
+//     if(
+//         !query ||
+//         query.length == 0 ||
+//         input.length == 0
+//       )
+//       return input;
+
+//     query = query.toLowerCase();
+
+//     var vd
+//         i = 0,
+//         out = [];
+
+
+//     for ( ; i < input.length; i++ ){
+//       vn = ( input[i].label ).toLowerCase();
+//       vd = ( input[i].desc ).toLowerCase();
+
+//       if(
+//         vn.indexOf(query) != -1 ||
+//         vd.indexOf(query) != -1
+//         )
+//       {
+//         out.push(input[i]);
+//       }
+//     }
+
+
+//     return out;
+//   };
+// })
+
+;
 
 function HomeCntl($scope){
 
 };
 
 function VideosCntl($scope) {
-  $scope.name = "VideosCntl";
-  $scope.query = "";
+
+  $scope.init = function(){
+    $scope.name = "VideosCntl";
+    $scope.orderProp = "date";
+    $scope.query = "";
+  }
+
   console.log("VideosCntl: transitionState: " + $scope.transitionState);
 }
 
