@@ -37,34 +37,44 @@ zhutou.controller('VideosCntl', ['$scope',
   function($scope) {
     var videosource = [
       {
-        id:1,src:"imgs/img1.jpg",label:"img1", desc:"Other YouTube users can post comments.",link:"#Video/1", date: "2012/4/5", viewed: '5'
+        id:1,src:"imgs/img1.jpg",label:"img1", desc:"Other YouTube users can post comments.",link:"#Video/1"
+        , date: "2012/4/5", viewed: '5', category: 'fundatemental' 
       },
       {
-        id:2,src:"imgs/img2.jpg",label:"img2",desc:"...",link:"#Video/2", date: "2013/1/15", viewed: '15'
+        id:2,src:"imgs/img2.jpg",label:"img2",desc:"...",link:"#Video/2"
+        , date: "2013/1/15", viewed: '15', category: 'directive' 
       },
       {
-        id:3,src:"imgs/img3.jpg",label:"img3",desc:"desc3",link:"#Video/3", date: "2013/5/7", viewed: '7'
+        id:3,src:"imgs/img3.jpg",label:"img3",desc:"desc3",link:"#Video/3"
+        , date: "2013/5/7", viewed: '7', category: 'routing' 
       },
       {
-        id:4,src:"imgs/img4.jpg",label:"img4",desc:"desc4",link:"#Video/4", date: "2013/7/1", viewed: '1'
+        id:4,src:"imgs/img4.jpg",label:"img4",desc:"desc4",link:"#Video/4"
+        , date: "2013/7/1", viewed: '1', category: 'testing' 
       },
       {
-        id:5,src:"imgs/img5.jpg",label:"img5",desc:"desc5",link:"#Video/5", date: "2013/2/26", viewed: '26'
+        id:5,src:"imgs/img5.jpg",label:"img5",desc:"desc5",link:"#Video/5"
+        , date: "2013/2/26", viewed: '26', category: 'fundatemental' 
       },
       {
-        id:6,src:"imgs/img6.jpg",label:"img6",desc:"...",link:"#Video/6", date: "2011/9/29", viewed: '29'
+        id:6,src:"imgs/img6.jpg",label:"img6",desc:"...",link:"#Video/6"
+        , date: "2011/9/29", viewed: '29', category: 'data binding' 
       },
       {
-        id:7,src:"imgs/img7.jpg",label:"img7",desc:"...",link:"#Video/7", date: "2009/11/3", viewed: '3'
+        id:7,src:"imgs/img7.jpg",label:"img7",desc:"...",link:"#Video/7"
+        , date: "2009/11/3", viewed: '3', category: 'routing' 
       },
       {
-        id:8,src:"imgs/img8.jpg",label:"img8",desc:"...",link:"#Video/8", date: "2003/6/2", viewed: '2'
+        id:8,src:"imgs/img8.jpg",label:"img8",desc:"...",link:"#Video/8"
+        , date: "2003/6/2", viewed: '2', category: 'directive' 
       },
       {
-        id:9,src:"imgs/img9.jpg",label:"img9",desc:"...",link:"#Video/9", date: "2013/8/1", viewed: '1'
+        id:9,src:"imgs/img9.jpg",label:"img9",desc:"...",link:"#Video/9"
+        , date: "2013/8/1", viewed: '1', category: 'directive' 
       },
       {
-        id:10,src:"imgs/img10.jpg",label:"img10",desc:"...",link:"#Video/10", date: "2013/9/17"
+        id:10,src:"imgs/img10.jpg",label:"img10",desc:"...",link:"#Video/10"
+        , date: "2013/9/17", viewed: '10', category: 'data binding' 
       },
     ];
     
@@ -208,43 +218,40 @@ zhutou.filter('videoQuery', function(){
   };
 })
 
-// .filter('videoDate', function(){
-//   return function(input, query){
+.filter('videoCategory', function(){
+  return function(input, query){
 
-//     if(!input)
-//       return [];
+    if(!input)
+      return [];
 
-//     if(
-//         !query ||
-//         query.length == 0 ||
-//         input.length == 0
-//       )
-//       return input;
+    if(
+    	!query ||
+        input.length == 0 || 
+        query == "all"
+      )
+      return input;
 
-//     query = query.toLowerCase();
+    query = query.toLowerCase();
 
-//     var vd
-//         i = 0,
-//         out = [];
-
-
-//     for ( ; i < input.length; i++ ){
-//       vn = ( input[i].label ).toLowerCase();
-//       vd = ( input[i].desc ).toLowerCase();
-
-//       if(
-//         vn.indexOf(query) != -1 ||
-//         vd.indexOf(query) != -1
-//         )
-//       {
-//         out.push(input[i]);
-//       }
-//     }
+    var vc,
+        i = 0,
+        out = [];
 
 
-//     return out;
-//   };
-// })
+    for ( ; i < input.length; i++ ){
+      vc = ( input[i].category ).toLowerCase();
+
+      if(
+        vc == (query)
+        )
+      {
+        out.push(input[i]);
+      }
+    }
+
+    return out;
+  };
+})
 
 ;
 
@@ -258,17 +265,18 @@ function VideosCntl($scope) {
     $scope.name = "VideosCntl";
     $scope.orderProp = "date";
     $scope.query = "";
-  }
+    $scope.category = "all";
+  };
 
   console.log("VideosCntl: transitionState: " + $scope.transitionState);
-}
+};
 
 function PrimaryCntl($scope) {
   $scope.name = "PrimaryCntl";
   console.log("PrimaryCntl: transitionState: " + $scope.transitionState);
-}
+};
 
 function SocialCntl($scope) {
   $scope.name = "SocialCntl";
   console.log("SocialCntl: transitionState: " + $scope.transitionState);
-}
+};

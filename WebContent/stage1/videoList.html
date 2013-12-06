@@ -43,16 +43,16 @@
     <div class="container-input-toolbar">
 	    <ul class="nav nav-pills">
         <li class="dropdown">
-          <a role="button" data-toggle="dropdown" data-target="#" >Filter by<b class="caret"></b></a>
+          <a role="button" data-toggle="dropdown" data-target="#" >Filter by Category<b class="caret"></b></a>
           <ul class="dropdown-menu" role="menu">
 
-            <li role="presentation"><a role="menuitem" tabindex="-1" href="http://twitter.com/fat">Fundamentals</a></li>
+            <li role="presentation"><a role="menuitem" ng-click="category = 'fundatemental'" tabindex="-1" href="">Fundamentals</a></li>
             <li role="presentation" class="divider"></li>
-            <li role="presentation"><a role="menuitem" tabindex="-1" href="http://twitter.com/fat">Directive</a></li>
-            <li role="presentation"><a role="menuitem" tabindex="-1" href="http://twitter.com/fat">Routing</a></li>
-            <li role="presentation"><a role="menuitem" tabindex="-1" href="http://twitter.com/fat">Data binding</a></li>
+            <li role="presentation"><a role="menuitem" ng-click="category = 'directive'" tabindex="-1" href="">Directive</a></li>
+            <li role="presentation"><a role="menuitem" ng-click="category = 'routing'" tabindex="-1" href="">Routing</a></li>
+            <li role="presentation"><a role="menuitem" ng-click="category = 'data binding'" tabindex="-1" href="">Data binding</a></li>
             <li role="presentation" class="divider"></li>
-            <li role="presentation"><a role="menuitem" tabindex="-1" href="http://twitter.com/fat">Testing</a></li>
+            <li role="presentation"><a role="menuitem" ng-click="category = 'testing'" tabindex="-1" href="">Testing</a></li>
           </ul>
         </li>
       </ul>
@@ -74,9 +74,9 @@
     <h1>{{orderProp}}</h1>
     <!-- filter by starts -->
   </div>
-  
+
   <div class="row" ng-repeat="videoRow in videos">
-    <div class="col-sm-6 col-md-4" ng-repeat="video in videoRow | videoQuery : query | orderBy: orderProp">
+    <div class="col-sm-6 col-md-4" ng-repeat="video in videoRow | videoQuery : query | orderBy: orderProp | videoCategory: category">
       <div class="thumbnail cus-thumbnail">
         <img class="cus-img" ng-src="{{video.src}}" alt="...">
         <div class="caption mask">
@@ -85,7 +85,7 @@
           <a href={{video.link}} class="" role="button">Enter</a> 
         </div>
       </div>
-      <span>{{video.date}}, {{video.viewed}}</span>
+      <span>{{video.date}}, {{video.viewed}}, {{video.category}}</span>
     </div>
   </div>
 
