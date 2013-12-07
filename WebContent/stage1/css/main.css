@@ -298,3 +298,19 @@ div.footer ul{
 div.footer ul li{
 	display: inline-block;
 }
+
+.toolbar {
+  height: 60px;
+  padding: 10px;
+  margin-bottom: 20px;
+}
+
+.container-input-toolbar {
+	float: left;
+	margin-right: 30px;
+}
+
+.container-input-toolbar .nav>li>a {
+	padding-top: 7px;
+	padding-bottom: 7px; 
+}
