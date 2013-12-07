@@ -27,10 +27,11 @@ zhutou.config(function($routeProvider) {
     templateUrl: 'primary.html',
     controller: 'PrimaryCntl'
   })
-  .when('/video/:videoId', {
+  .when('/videos/:videoId', {
     templateUrl: 'videoDetail.html',
     controller: "VideoDetailCntl"
-  }).when('/Contact', {
+  })
+  .when('/Contact', {
 	    templateUrl: 'contactUs.html'
   });
 });
@@ -39,43 +40,43 @@ zhutou.controller('VideosCntl', ['$scope',
   function($scope) {
     var videosource = [
       {
-        id:1,src:"imgs/img1.jpg",label:"img1", desc:"Other YouTube users can post comments.",link:"#Video/1"
+        id:1,src:"imgs/img1.jpg",label:"img1", desc:"Other YouTube users can post comments.",link:"#/videos/1"
         , date: "2012/4/5", viewed: '5', category: 'fundatemental' 
       },
       {
-        id:2,src:"imgs/img2.jpg",label:"img2",desc:"...",link:"#Video/2"
+        id:2,src:"imgs/img2.jpg",label:"img2",desc:"...",link:"#/videos/2"
         , date: "2013/1/15", viewed: '15', category: 'directive' 
       },
       {
-        id:3,src:"imgs/img3.jpg",label:"img3",desc:"desc3",link:"#Video/3"
+        id:3,src:"imgs/img3.jpg",label:"img3",desc:"desc3",link:"#/videos/3"
         , date: "2013/5/7", viewed: '7', category: 'routing' 
       },
       {
-        id:4,src:"imgs/img4.jpg",label:"img4",desc:"desc4",link:"#Video/4"
+        id:4,src:"imgs/img4.jpg",label:"img4",desc:"desc4",link:"#/videos/4"
         , date: "2013/7/1", viewed: '1', category: 'testing' 
       },
       {
-        id:5,src:"imgs/img5.jpg",label:"img5",desc:"desc5",link:"#Video/5"
+        id:5,src:"imgs/img5.jpg",label:"img5",desc:"desc5",link:"#/videos/5"
         , date: "2013/2/26", viewed: '26', category: 'fundatemental' 
       },
       {
-        id:6,src:"imgs/img6.jpg",label:"img6",desc:"...",link:"#Video/6"
+        id:6,src:"imgs/img6.jpg",label:"img6",desc:"...",link:"#/videos/6"
         , date: "2011/9/29", viewed: '29', category: 'data binding' 
       },
       {
-        id:7,src:"imgs/img7.jpg",label:"img7",desc:"...",link:"#Video/7"
+        id:7,src:"imgs/img7.jpg",label:"img7",desc:"...",link:"#/videos/7"
         , date: "2009/11/3", viewed: '3', category: 'routing' 
       },
       {
-        id:8,src:"imgs/img8.jpg",label:"img8",desc:"...",link:"#Video/8"
+        id:8,src:"imgs/img8.jpg",label:"img8",desc:"...",link:"#/videos/8"
         , date: "2003/6/2", viewed: '2', category: 'directive' 
       },
       {
-        id:9,src:"imgs/img9.jpg",label:"img9",desc:"...",link:"#Video/9"
+        id:9,src:"imgs/img9.jpg",label:"img9",desc:"...",link:"#/videos/9"
         , date: "2013/8/1", viewed: '1', category: 'directive' 
       },
       {
-        id:10,src:"imgs/img10.jpg",label:"img10",desc:"...",link:"#Video/10"
+        id:10,src:"imgs/img10.jpg",label:"img10",desc:"...",link:"#/videos/10"
         , date: "2013/9/17", viewed: '10', category: 'data binding' 
       },
     ];
