@@ -80,6 +80,7 @@ zhutou.controller('VideosCntl', ['$scope',
       },
     ];
     
+    /*
     var numberPerRow = 3;//TODO user can set this further
     var videos = [];
     var tempArray = [];
@@ -92,6 +93,8 @@ zhutou.controller('VideosCntl', ['$scope',
     }
     
     $scope.videos = videos;
+    */
+    $scope.videos = videosource;
     
   }]);
 

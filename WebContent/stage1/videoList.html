@@ -76,9 +76,8 @@
     <h1>{{orderProp}}</h1>
     <!-- filter by starts -->
   </div>
-
-  <div class="row" ng-repeat="videoRow in videos">
-    <div class="col-sm-6 col-md-4" ng-repeat="video in videoRow | videoQuery : query | orderBy: orderProp | videoCategory: category">
+  
+  <div class="row col-sm-6 col-md-4" ng-repeat="video in videos | videoQuery : query | orderBy: orderProp | videoCategory: category">
       <div class="thumbnail cus-thumbnail">
         <img class="cus-img" ng-src="{{video.src}}" alt="...">
         <div class="caption mask">
@@ -88,7 +87,6 @@
         </div>
       </div>
       <span>{{video.date}}, {{video.viewed}}, {{video.category}}</span>
-    </div>
   </div>
 
 </div>
