@@ -1,8 +1,5 @@
-<ol class="breadcrumb">
-  <li class="active">Home</li>
-</ol>
-
 <!--TODO: test for different css3 style-->
+<!-- 
 <div class="about-container">
 	<img src="imgs/img1.jpg">
 	<div class="mask-1"></div>
@@ -12,23 +9,87 @@
         <p>A wonderful serenity has taken possession of my entire soul, like these sweet mornings of spring which I enjoy with my whole heart.</p>
     </div>
 </div>
+ -->
 
-
+<!-- 
 <div style="clear:both;"></div>
+ -->
 
+<style>
+.dropdown {
+	cursor: pointer;
+}
+
+.container-input-toolbar-search {
+	width: 250px;
+}
+</style>
 
 <!--begin from here-->
-<div class="container" ng-controller="ThumbnailCntl">
-<div class="row" ng-repeat="row in rows">
-  <div class="col-sm-6 col-md-4" ng-repeat="thumbnail in row">
-    <div class="thumbnail cus-thumbnail">
-      <img class="cus-img" ng-src="{{thumbnail.src}}" alt="...">
-      <div class="caption mask">
-        <h3>{{thumbnail.label}}</h3>
-        <p>{{thumbnail.desc}}</p>
-        <a href={{thumbnail.link}} class="" role="button">Enter</a> 
+<div class="container" ng-controller="VideosCntl" ng-init="init();">
+	<ol class="breadcrumb">
+	  <li><a href="#">Home</a></li>
+	  <li style="cursor: default;" class="active">Videos</li>
+	</ol>
+	
+  <div class="toolbar">
+    <!-- search input starts -->
+    <div class="container-input-toolbar container-input-toolbar-search">
+    	<input type="text" ng-model="query" class="form-control" placeholder="Search by...">
+    </div>
+    <!-- search input ends -->
+
+    <!-- filter by starts -->
+    <div class="container-input-toolbar">
+	    <ul class="nav nav-pills">
+        <li class="dropdown">
+          <a role="button" data-toggle="dropdown" data-target="#" >Filter by Category<b class="caret"></b></a>
+          <ul class="dropdown-menu" role="menu">
+
+            <li role="presentation"><a role="menuitem" ng-click="category = 'all'" tabindex="-1" href="">All</a></li>
+            <li role="presentation" class="divider"></li>
+            <li role="presentation"><a role="menuitem" ng-click="category = 'fundatemental'" tabindex="-1" href="">Fundamentals</a></li>
+            <li role="presentation" class="divider"></li>
+            <li role="presentation"><a role="menuitem" ng-click="category = 'directive'" tabindex="-1" href="">Directive</a></li>
+            <li role="presentation"><a role="menuitem" ng-click="category = 'routing'" tabindex="-1" href="">Routing</a></li>
+            <li role="presentation"><a role="menuitem" ng-click="category = 'data binding'" tabindex="-1" href="">Data binding</a></li>
+            <li role="presentation" class="divider"></li>
+            <li role="presentation"><a role="menuitem" ng-click="category = 'testing'" tabindex="-1" href="">Testing</a></li>
+          </ul>
+        </li>
+      </ul>
+    </div>
+    <!-- filter by starts -->
+    
+    <!-- order by starts -->
+    <div class="container-input-toolbar">
+	    <ul class="nav nav-pills">
+        <li class="dropdown">
+          <a role="button" data-toggle="dropdown" data-target="#" >Order by<b class="caret"></b></a>
+          <ul class="dropdown-menu" role="menu">
+            <li role="presentation"><a role="menuitem" ng-click="orderProp = '-date'" tabindex="-1" href="">Latest</a></li>
+            <li role="presentation"><a role="menuitem" ng-click="orderProp = '-viewed'" tabindex="-1" href="">Most viewed</a></li>
+          </ul>
+        </li>
+      </ul>
+    </div>
+    <h1>{{orderProp}}</h1>
+    <!-- filter by starts -->
+  </div>
+
+  <div class="row" ng-repeat="videoRow in videos">
+    <div class="col-sm-6 col-md-4" ng-repeat="video in videoRow | videoQuery : query | orderBy: orderProp | videoCategory: category">
+      <div class="thumbnail cus-thumbnail">
+        <img class="cus-img" ng-src="{{video.src}}" alt="...">
+        <div class="caption mask">
+          <h3>{{video.label}}</h3>
+          <p>{{video.desc}}</p>
+          <a href={{video.link}} class="" role="button">Enter</a> 
+        </div>
       </div>
+      <span>{{video.date}}, {{video.viewed}}, {{video.category}}</span>
     </div>
   </div>
+
 </div>
-</div>
+
