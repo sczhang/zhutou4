@@ -281,3 +281,20 @@ div img.cus-img{
 .view:not(.active){
 	opacity: 0;
 }
+
+div.footer{
+	text-align: center;
+	margin: 10px auto;
+	/*
+	position: absolute;
+	bottom: 0;
+    */
+}
+
+div.footer ul{
+	display: inline-block;
+}
+
+div.footer ul li{
+	display: inline-block;
+}

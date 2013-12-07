@@ -26,6 +26,8 @@ ngViewExample.config(function($routeProvider) {
   .when('/Video/:videoId', {
     templateUrl: 'videoDetail.html',
     controller: "VideoDetailCntl"
+  }).when('/Contact', {
+	    templateUrl: 'contactUs.html'
   });
 });
 
