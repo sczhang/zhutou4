@@ -101,32 +101,76 @@ zhutou.controller('VideosCntl', ['$scope',
 
 zhutou.controller('VideoDetailCntl', ['$scope', '$routeParams', 
 function ($scope, $routeParams){
+
+  $routeParams.videoId = parseInt( $routeParams.videoId );
+
+  $scope.hasPrevVideo = true;
+  $scope.hasNextVideo = true;
+
   var videos = [
-    {id:1, name:"video1", src:"//www.youtube.com/embed/ZS6V0Sx25Kk"},
-    {id:2, name:"video2", src:"//www.youtube.com/embed/TmMWvouqvdI"},
-    {id:3, name:"video3", src:'//www.youtube.com/embed/O9dK6S2tBZk'},
-    {id:4, name:"video4", src:'//www.youtube.com/embed/oyPuCw8xjEs'},
-    {id:5, name:"video5", src:'//www.youtube.com/embed/iuZgSt5qWrk'},
-    {id:6, name:"video6", src:'//www.youtube.com/embed/c5QV-7os5zw'},
-    {id:7, name:"video7", src:'//www.youtube.com/embed/dPXBQmZZYdQ'},
-    {id:8, name:"video8", src:'//www.youtube.com/embed/TiRhiArxEIs'},
-    {id:9, name:"video9", src:'//www.youtube.com/embed/SWC_ZYuLh7I'},
-    {id:10, name:"video10", src:'//www.youtube.com/embed/inx9U1JMS7o'}
+    {
+      id: 1, name: "video1", src: "//www.youtube.com/embed/ZS6V0Sx25Kk"
+    },
+    {
+      id: 2, name: "video2", src: "//www.youtube.com/embed/TmMWvouqvdI"
+    },
+    {
+      id: 3, name:"video3", src:'//www.youtube.com/embed/O9dK6S2tBZk'
+    },
+    {
+      id: 4, name: "video4", src: '//www.youtube.com/embed/oyPuCw8xjEs'
+    },
+    {
+      id: 5, name: "video5", src: '//www.youtube.com/embed/iuZgSt5qWrk'
+    },
+    {
+      id: 6, name: "video6", src: '//www.youtube.com/embed/c5QV-7os5zw'
+    },
+    {
+      id: 7, name: "video7", src: '//www.youtube.com/embed/dPXBQmZZYdQ'
+    },
+    {
+      id: 8, name: "video8", src: '//www.youtube.com/embed/TiRhiArxEIs'
+    },
+    {
+      id: 9, name: "video9", src: '//www.youtube.com/embed/SWC_ZYuLh7I'
+    },
+    {
+      id: 10, name: "video10", src: '//www.youtube.com/embed/inx9U1JMS7o'
+    }
   ];
   
   var count = 0;
-  while(count<videos.length){
-    if (videos[count].id==$routeParams.videoId) {
+  while( count < videos.length ){
+    if ( videos[count].id == $routeParams.videoId ) {
       $scope.video = videos[count];
       break;
     } else {
       count++;
     }
   }
-  if(count==videos.length){
-    $scope.video = {id:null, name:"not existed", src:""};
+  if(count == videos.length){
+    $scope.video = {
+      id: null, name: "not existed", src: ""
+    };
   }
-  
+
+
+
+
+  if( $routeParams.videoId != 1 ){
+	  $scope.prevVideoName = videos[ $routeParams.videoId - 2 ].name;
+	  $scope.prevVideoLink = "#/videos/" + ( $routeParams.videoId - 1 );
+  }else {
+	  $scope.hasPrevVideo = false;
+  }
+  if( $routeParams.videoId != ( videos.length ) ){
+	  $scope.nextVideoName = videos[ $routeParams.videoId ].name;
+	  $scope.nextVideoLink = "#/videos/" + ( $routeParams.videoId + 1 );
+  }else {
+	  $scope.hasNextVideo = false;
+  }
+
   //TODO how to add js to ng-view?
   // like domready
   $scope.$on('$viewContentLoaded', function() {

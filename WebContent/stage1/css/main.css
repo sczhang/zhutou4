@@ -237,7 +237,7 @@ div img.cus-img{
     font:bold 5em Edwardian Script ITC;
 }
 .videoDetailContent{
-    border-bottom: 1px solid #ddd;
+    
 }
 .videoDetailContent iframe{
 	display: block;
@@ -283,6 +283,7 @@ div img.cus-img{
 }
 
 div.footer{
+	border-top: 1px solid #ddd;
 	text-align: center;
 	margin: 10px auto;
 	/*
