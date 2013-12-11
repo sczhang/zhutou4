@@ -6,28 +6,17 @@
   <li class="active">{{video.name}}</li>
 </ol>
 
-	<a href="#/videos/5">click here</a>
-
 	<div class="videoDetailHeader">
 		<h2>{{video.name}}</h2>
 	</div>
+
 	<div class="videoDetailContent">
 		<iframe width="420" height="315" ng-src="{{trustSrc(video.src)}}" frameborder="0" allowfullscreen></iframe>
 	</div>
+	
 	<div class="videoDetailPagi" style="width: 100%;">
 		<ul style="display: table; width: 100%;">
 			<li style="display: table-row; text-align: left;">
-				<!-- <div style="display: table-cell; text-align: center; width: 50%;">
-					<button ng-show="hasPrevVideo" ng-click="gotoVideo(-1)" type="button" class="btn btn-info">
-						<< {{prevVideoName}}
-					</button>
-				</div>
-				<div style="display: table-cell; text-align: center; width: 50%;">
-					<button ng-show="hasNextVideo" ng-click="gotoVideo(1)" type="button" class="btn btn-info">
-						{{nextVideoName}} >>
-					</button>
-				</div> -->
-
 				<div style="display: table-cell; text-align: center; width: 50%;">
 					<a href="{{prevVideoLink}}" ng-show="hasPrevVideo" class="btn btn-info">
 						<< {{prevVideoName}}
@@ -42,20 +31,6 @@
 		</ul>
 	</div>
 
-	<!-- <div class="thirdParty">
-	    <ul>
-	        <li>
-				<div class="fb-share-button" data-href="http://developers.facebook.com/docs/plugins/" data-type="button_count"></div>
-	        </li>
-	        <li>
-	            <a href="https://twitter.com/share" class="twitter-share-button" data-via="twitterapi" data-lang="en">Tweet</a>
-	        </li>
-	        <li>
-	            <p>hello hello hello</p>
-	        </li>
-	    </ul>
-	</div> -->
-	
 	<div class="videoDetailDesc">
 	</div>
 </div>
