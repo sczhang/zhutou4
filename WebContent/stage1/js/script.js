@@ -198,7 +198,14 @@ function MainCntl($scope, $route, $sce, $location) {
 
 //  $scope.$route = $route;
   $scope.isActive = function(){
-	  if ("#" + $location.$$path === this.tab.url) {
+	  
+	  if( ( "#" + $location.$$path == this.tab.url ) && ( $location.$$path == '/' ) )
+		  return true;
+	  
+	  if ( 
+			  ( ("#" + $location.$$path ).indexOf( this.tab.url ) != -1 ) && 
+			  ( this.tab.url != '#/' ) 
+	  ) {
 		  return true; 
 	  }
       return false;  
