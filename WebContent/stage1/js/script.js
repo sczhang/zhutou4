@@ -102,11 +102,34 @@ zhutou.controller('VideosCntl', ['$scope',
 zhutou.controller('VideoDetailCntl', ['$scope', '$routeParams', 
 function ($scope, $routeParams){
 
+  console.log("come to: " + $routeParams.videoId );
+	
   $routeParams.videoId = parseInt( $routeParams.videoId );
 
   $scope.hasPrevVideo = true;
   $scope.hasNextVideo = true;
 
+  function renderCodeExample() {
+	  function html(s) {
+	      return s.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
+	    };
+
+	  var theHtml = $('.breadcrumb').html().trim();
+
+	  var quineHtml = html( theHtml );
+
+	  console.log( theHtml );
+
+	  setTimeout(function(){
+		  $('#quine').html(quineHtml);
+		  prettyPrint();
+	  });
+	  
+//	  $('#quine').html(quineHtml);
+	  
+//	  prettyPrint();
+  };
+  
   var videos = [
     {
       id: 1, name: "video1", src: "//www.youtube.com/embed/ZS6V0Sx25Kk"
@@ -170,6 +193,8 @@ function ($scope, $routeParams){
   }else {
 	  $scope.hasNextVideo = false;
   }
+  
+  renderCodeExample();
 
   //TODO how to add js to ng-view?
   // like domready
@@ -233,9 +258,38 @@ function MainCntl($scope, $route, $sce, $location) {
     }
   ];
   $scope.$on("$routeChangeSuccess", function (scope, next, current) {
+	  console.log("route change success");
       $scope.transitionState = "active";
   });
 };
+
+
+function HomeCntl($scope){
+
+};
+
+function VideosCntl($scope) {
+
+  $scope.init = function(){
+    $scope.name = "VideosCntl";
+    $scope.orderProp = "date";
+    $scope.query = "";
+    $scope.category = "all";
+  };
+
+  console.log("VideosCntl: transitionState: " + $scope.transitionState);
+};
+
+function PrimaryCntl($scope) {
+  $scope.name = "PrimaryCntl";
+  console.log("PrimaryCntl: transitionState: " + $scope.transitionState);
+};
+
+function SocialCntl($scope) {
+  $scope.name = "SocialCntl";
+  console.log("SocialCntl: transitionState: " + $scope.transitionState);
+};
+
 
 zhutou.filter('videoQuery', function(){
   return function(input, query){
@@ -311,29 +365,3 @@ zhutou.filter('videoQuery', function(){
 })
 
 ;
-
-function HomeCntl($scope){
-
-};
-
-function VideosCntl($scope) {
-
-  $scope.init = function(){
-    $scope.name = "VideosCntl";
-    $scope.orderProp = "date";
-    $scope.query = "";
-    $scope.category = "all";
-  };
-
-  console.log("VideosCntl: transitionState: " + $scope.transitionState);
-};
-
-function PrimaryCntl($scope) {
-  $scope.name = "PrimaryCntl";
-  console.log("PrimaryCntl: transitionState: " + $scope.transitionState);
-};
-
-function SocialCntl($scope) {
-  $scope.name = "SocialCntl";
-  console.log("SocialCntl: transitionState: " + $scope.transitionState);
-};
