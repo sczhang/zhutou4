@@ -16,22 +16,6 @@
 	
 	<div class="code">
 		<pre class="prettyprint linenums" id="quine" style="border:4px solid #88c">
-			<div class="videoDetailPagi1" style="width: 100%;">
-				<ul style="display: table; width: 100%;">
-					<li style="display: table-row; text-align: left;">
-						<div style="display: table-cell; text-align: center; width: 50%;">
-							<a href="{{prevVideoLink}}" ng-show="hasPrevVideo" class="btn btn-info">
-								<< {{prevVideoName}}
-							</a>
-						</div>
-						<div style="display: table-cell; text-align: center; width: 50%;">
-							<a href="{{nextVideoLink}}" ng-show="hasNextVideo" class="btn btn-info">
-								{{nextVideoName}} >>
-							</a>
-						</div>
-					</li>
-				</ul>
-			</div>
 		</pre>
 	</div>
 
@@ -53,6 +37,43 @@
 	</div>
 
 	<div class="videoDetailDesc">
+	</div>
+</div>
+
+<div class="codes" style="display: none;">
+	<div id="video_code_1" style="width: 100%;">
+<ul style="display: table; width: 100%;">
+  this is the code example for video 111111
+	<li style="display: table-row; text-align: left;">
+		<div style="display: table-cell; text-align: center; width: 50%;">
+			<a href="{{prevVideoLink}}" ng-show="hasPrevVideo" class="btn btn-info">
+				<< {{prevVideoName}}
+			</a>
+		</div>
+		<div style="display: table-cell; text-align: center; width: 50%;">
+			<a href="{{nextVideoLink}}" ng-show="hasNextVideo" class="btn btn-info">
+				{{nextVideoName}} >>
+			</a>
+		</div>
+	</li>
+</ul>
+	</div>
+	<div id="video_code_2" style="width: 100%;">
+<ul style="display: table; width: 100%;">
+  this is the code example for video 222222
+  <li style="display: table-row; text-align: left;">
+    <div style="display: table-cell; text-align: center; width: 50%;">
+			<a href="{{prevVideoLink}}" ng-show="hasPrevVideo" class="btn btn-info">
+				<< {{prevVideoName}}
+			</a>
+		</div>
+		<div style="display: table-cell; text-align: center; width: 50%;">
+			<a href="{{nextVideoLink}}" ng-show="hasNextVideo" class="btn btn-info">
+				{{nextVideoName}} >>
+			</a>
+		</div>
+	</li>
+</ul>
 	</div>
 </div>
 

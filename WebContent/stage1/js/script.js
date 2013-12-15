@@ -109,12 +109,12 @@ function ($scope, $routeParams){
   $scope.hasPrevVideo = true;
   $scope.hasNextVideo = true;
 
-  function renderCodeExample() {
+  function renderCodeExample(id) {
 	  function html(s) {
 	      return s.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
 	    };
 
-	  var theHtml = $('.breadcrumb').html().trim();
+	  var theHtml = $('#video_code_' + id).html().trim();
 
 	  var quineHtml = html( theHtml );
 
@@ -194,7 +194,7 @@ function ($scope, $routeParams){
 	  $scope.hasNextVideo = false;
   }
   
-  renderCodeExample();
+  renderCodeExample($routeParams.videoId);
 
   //TODO how to add js to ng-view?
   // like domready
