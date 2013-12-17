@@ -1,15 +1,5 @@
 var zhutou = angular.module('zhutou', ['ngRoute', 'ngSanitize'])
 
-/*
-ngViewExample.directive("facebook", function(){
-	return {
-		restrict: "E",
-		//template: '<div class="fb-share-button" data-href="http://developers.facebook.com/docs/plugins/" data-type="button_count"></div>'
-		template: "<p>zk</p>"
-	}
-});
-*/
-
 zhutou.config(function($routeProvider) {
   $routeProvider.when('/', {
     templateUrl: 'home.html',
@@ -19,11 +9,11 @@ zhutou.config(function($routeProvider) {
     templateUrl: 'videoList.html',
     controller: 'VideosCntl'
   })
-  .when('/social', {
+  .when('/tutorials', {
     templateUrl: 'social.html',
     controller: 'SocialCntl'
   })
-  .when('/primary', {
+  .when('/projects', {
     templateUrl: 'primary.html',
     controller: 'PrimaryCntl'
   })
@@ -81,22 +71,7 @@ zhutou.controller('VideosCntl', ['$scope',
       },
     ];
     
-    /*
-    var numberPerRow = 3;//TODO user can set this further
-    var videos = [];
-    var tempArray = [];
-    for(var i = 1; i <= videosource.length; i++ ){
-      tempArray.push(videosource[ i - 1 ]);
-      if( i % numberPerRow == 0 || i == videosource.length ){
-        videos.push(tempArray);
-        tempArray = [];
-      }
-    }
-    
-    $scope.videos = videos;
-    */
     $scope.videos = videosource;
-    
   }]);
 
 zhutou.controller('VideoDetailCntl', ['$scope', '$routeParams', 
@@ -125,10 +100,6 @@ function ($scope, $routeParams){
 		  $('#quine').html(quineHtml);
 		  prettyPrint();
 	  });
-	  
-//	  $('#quine').html(quineHtml);
-	  
-//	  prettyPrint();
   };
   
   var videos = [
@@ -179,9 +150,6 @@ function ($scope, $routeParams){
     };
   }
 
-
-
-
   if( $routeParams.videoId != 1 ){
 	  $scope.prevVideoName = videos[ $routeParams.videoId - 2 ].name;
 	  $scope.prevVideoLink = "#/videos/" + ( $routeParams.videoId - 1 );
@@ -222,7 +190,6 @@ function MainCntl($scope, $route, $sce, $location) {
     return $sce.trustAsResourceUrl(src);
   };
 
-//  $scope.$route = $route;
   $scope.isActive = function(){
 	  
 	  if( ( "#" + $location.$$path == this.tab.url ) && ( $location.$$path == '/' ) )
@@ -248,18 +215,17 @@ function MainCntl($scope, $route, $sce, $location) {
       , class: ""
     },
     {
-      url:"#/primary", 
-      text:"Primary"
+      url:"#/projects", 
+      text:"Projects"
       , class: ""
-    },
-    {
-      url:"#/social", 
-      text:"Social"
+    }
+    , {
+      url:"#/tutorials", 
+      text:"Tutorials"
       , class: ""
     }
   ];
   $scope.$on("$routeChangeSuccess", function (scope, next, current) {
-	  console.log("route change success");
       $scope.transitionState = "active";
   });
 };

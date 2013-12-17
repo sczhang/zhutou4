@@ -11,9 +11,6 @@
 </head>
 <body>
 
-<!-- facebook -->
-            <div id="fb-root"></div>
-
 <!-- Nav bar -->
 <!-- <nav class="navbar navbar-default" role="navigation">
   <div class="navbar-header">
@@ -68,59 +65,30 @@
 <div ng-controller="MainCntl" ng-cloak>
 
   <nav class="navbar navbar-default" role="navigation">
-<div class="container">
-  <div class="navbar-header">
-    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
-      <span class="sr-only">Toggle navigation</span>
-      <span class="icon-bar"></span>
-      <span class="icon-bar"></span>
-      <span class="icon-bar"></span>
-    </button>
-    <a class="navbar-brand" href="#">Brand</a>
-  </div>
-  <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-    <ul class="nav navbar-nav">
-      <li ng-class="{ 'active': isActive() }" ng-repeat="tab in tabs">
-        <a href={{tab.url}} data-toggle="tab">{{tab.text}}</a>
-      </li>
-    </ul>
-  </div>
-</div>
+		<div class="container">
+		  <div class="navbar-header">
+		    <a class="navbar-brand" href="#">Brand</a>
+		  </div>
+		  <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+		    <ul class="nav navbar-nav">
+		      <li ng-class="{ 'active': isActive() }" ng-repeat="tab in tabs">
+		        <a href={{tab.url}} data-toggle="tab">{{tab.text}}</a>
+		      </li>
+		    </ul>
+		  </div>
+		</div>
   </nav>
-  
-  <!-- 
-  <div class="code">
-		<pre class="prettyprint linenums" id="quine" style="border:4px solid #88c">
-			<div class="videoDetailPagi1" style="width: 100%;">
-				<ul style="display: table; width: 100%;">
-					<li style="display: table-row; text-align: left;">
-						<div style="display: table-cell; text-align: center; width: 50%;">
-							<a href="{{prevVideoLink}}" ng-show="hasPrevVideo" class="btn btn-info">
-								<< {{prevVideoName}}
-							</a>
-						</div>
-						<div style="display: table-cell; text-align: center; width: 50%;">
-							<a href="{{nextVideoLink}}" ng-show="hasNextVideo" class="btn btn-info">
-								{{nextVideoName}} >>
-							</a>
-						</div>
-					</li>
-				</ul>
-			</div>
-		</pre>
-	</div>
-	 -->
-
+ 	
   <div ng-view></div>
   
   <!-- how to make the footer in the bottom of the page? -->
-    <div class="footer">
-    	<ul>
-    		<li>
-    			<a href="#/Contact">Contact us</a>
-    		</li>
-    	</ul>  
-    </div>
+   <div class="footer">
+   	<ul>
+   		<li>
+   			<a href="#/Contact">Contact us</a>
+   		</li>
+   	</ul>  
+   </div>
 </div>
 
 
