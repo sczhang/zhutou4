@@ -77,8 +77,6 @@ zhutou.controller('VideosCntl', ['$scope',
 zhutou.controller('VideoDetailCntl', ['$scope', '$routeParams', 
 function ($scope, $routeParams){
 
-  console.log("come to: " + $routeParams.videoId );
-	
   $routeParams.videoId = parseInt( $routeParams.videoId );
 
   $scope.hasPrevVideo = true;
@@ -224,6 +222,30 @@ function MainCntl($scope, $route, $sce, $location) {
       text:"Tutorials"
       , class: ""
     }
+    
+    
+    , {
+        url:"some url", 
+        text:"Tabs"
+        , class: ""
+        , children: [
+	                   {
+	                	   url: "#/tab1",
+	                	   text: "Tab 1"
+	                   },
+	                   {
+	                	   url: "#/tab2",
+	                	   text: "Tab 2"
+	                   },
+	                   {
+	                	   url: "#/tab3",
+	                	   text: "Tab 3"
+	                   }
+                   ]
+    
+      }
+    
+    
   ];
   $scope.$on("$routeChangeSuccess", function (scope, next, current) {
       $scope.transitionState = "active";
@@ -243,18 +265,14 @@ function VideosCntl($scope) {
     $scope.query = "";
     $scope.category = "all";
   };
-
-  console.log("VideosCntl: transitionState: " + $scope.transitionState);
 };
 
 function PrimaryCntl($scope) {
   $scope.name = "PrimaryCntl";
-  console.log("PrimaryCntl: transitionState: " + $scope.transitionState);
 };
 
 function SocialCntl($scope) {
   $scope.name = "SocialCntl";
-  console.log("SocialCntl: transitionState: " + $scope.transitionState);
 };
 
 
