@@ -1,5 +1,21 @@
 <div class="videoDetailContainer container">
 
+<div class="row">
+	<!-- <div class="col-md-4">
+		<ul style="position: fixed;" id="video-sidenav" class="nav">
+			<li>
+				<a href="#content-nav">
+					video
+				</a>
+			</li>
+			<li>
+				<a href="#code-nav">
+					code
+				</a>
+			</li>
+		</ul>
+	</div> -->
+
 	<ol class="breadcrumb">
 	  <li><a href="#">Home</a></li>
 	  <li><a href="#/videos">Videos</a></li>
@@ -10,15 +26,10 @@
 		<h2>{{video.name}}</h2>
 	</div>
 
-	<div class="videoDetailContent">
+	<div id="content-nav" class="videoDetailContent">
 		<iframe width="420" height="315" ng-src="{{trustSrc(video.src)}}" frameborder="0" allowfullscreen></iframe>
 	</div>
 	
-	<div class="code">
-		<pre class="prettyprint linenums" id="quine" style="border:4px solid #88c">
-		</pre>
-	</div>
-
 	<div class="videoDetailPagi" style="width: 100%;">
 		<ul style="display: table; width: 100%;">
 			<li style="display: table-row; text-align: left;">
@@ -37,9 +48,16 @@
 	</div>
 
 	<div class="videoDetailDesc">
+		<div class="code">
+			<pre class="prettyprint linenums" id="quine" style="border:4px solid #88c">
+			</pre>
+		</div>
 	</div>
-</div>
 
+	
+
+
+<!-- sample code starts -->
 <div class="codes" style="display: none;">
 	<div id="video_code_1" style="width: 100%;">
 <ul style="display: table; width: 100%;">
@@ -76,4 +94,10 @@
 </ul>
 	</div>
 </div>
+<!-- sample code ends -->
+	</div>
+</div>
+
+
+	
 
