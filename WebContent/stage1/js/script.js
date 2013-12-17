@@ -114,11 +114,12 @@ function ($scope, $routeParams){
 	      return s.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
 	    };
 
-	  var theHtml = $('#video_code_' + id).html().trim();
-
+	  if($('#video_code_' + id).length != 0)
+		  var theHtml = $('#video_code_' + id).html().trim();
+	  else 
+		  return ;
+	  
 	  var quineHtml = html( theHtml );
-
-	  console.log( theHtml );
 
 	  setTimeout(function(){
 		  $('#quine').html(quineHtml);
