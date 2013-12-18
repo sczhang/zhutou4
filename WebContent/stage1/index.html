@@ -74,17 +74,28 @@
 		      <li ng-class="{ 'active': isActive() }" ng-repeat="tab in tabs">
 		      		<a ng-if="!tab.children" href={{tab.url}} data-toggle="tab">{{tab.text}}</a>
 		      		
+		      		<a ng-if="tab.children" href={{tab.url}} data-toggle="dropdown">{{tab.text}}</a>
+		      		<ul ng-if="tab.children" class="dropdown-menu">
+		      			<li ng-repeat="t in tab.children">
+	            		<a href="{{t.url}}">{{t.text}}</a>
+	            	</li>
+	            </ul>
+		      		
 		      		<!-- <a ng-if="tab.children" href={{tab.url}} data-toggle="tab">HAS CHILDREN</a> -->
 		      		
 		      		<!-- Do NOT delete this -->
-		      		<!-- <li ng-if="tab.children" class="dropdown">
-		      			<a href="#" class="dropdown-toggle" data-toggle="dropdown">Dropdown <b class="caret"></b></a>
-		            <ul class="dropdown-menu">
-		            	<li ng-repeat="t in tab.children">
-		            		<a href="{{t.url}}">{{t.text}}</a>
-		            	</li>
-		            </ul>
-		          </li> -->
+		      		<!-- 
+		      		
+			      		<li ng-if="tab.children" class="dropdown">
+			      			<a href="#" class="dropdown-toggle" data-toggle="dropdown">Dropdown <b class="caret"></b></a>
+			            <ul class="dropdown-menu">
+			            	<li ng-repeat="t in tab.children">
+			            		<a href="{{t.url}}">{{t.text}}</a>
+			            	</li>
+			            </ul>
+			          </li>
+			           
+		          -->
 		          
 		      </li>
 		      
