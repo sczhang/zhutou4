@@ -94,13 +94,13 @@ div img.cus-img{
 }
 
 
-/*TODO: test different css3 style*/
+/* -start- masthead in home page */
 .about-container{
   width: 900px;
   height: 600px;
   margin: 0 auto;
   /*float: left;*/
-  border: 30px solid #fff;
+  border: 30px solid #000;
   overflow: hidden;
   position: relative;
   text-align: center;
@@ -131,10 +131,13 @@ div img.cus-img{
   transition: all 0.4s ease-in-out 0s;
   -webkit-transform-origin: 0% 100%;
   transform-origin: 0% 100%;
-  -webkit-transform: rotate(-32.5deg) translate(-91px, 150px) scale(1.18);
+  -webkit-transform: rotate(-32.5deg) translate(-91px, -50px) scale(1.18);
   transform: rotate(-32.5deg) translate(-91px, 150px) scale(1.18);
 }
 
+.about-content {
+	border: 1px solid #FFF;
+}
 
 .about-container:hover .about-content {
   width: 840px;
@@ -227,6 +230,29 @@ div img.cus-img{
 	-webkit-transition: all 0.3s ease-in-out 0s;
 	transition: all 0.3s ease-in-out 0s;
 }
+/* -end- masthead in home page */
+
+/* -start- features introduction in home page */
+.feature-container{
+  width: 900px;
+  margin: 0 auto;
+  /*float: left;*/
+  border: 30px solid #fff;
+  overflow: hidden;
+  position: relative;
+  text-align: center;
+  -webkit-box-shadow: 0px 0px 20px #e6e6e6;
+  -moz-box-shadow: 0px 0px 20px #e6e6e6;
+  box-shadow: 0px 0px 20px #e6e6e6;
+  cursor: default;
+}
+
+.feature-container .panel{
+	float:left;
+	width:250px;
+	margin:0 15px;
+}
+/* -end- features introduction in home page */
 
 /* video detail page css */
 .videoDetailHeader h2{
