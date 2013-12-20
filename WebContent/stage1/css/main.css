@@ -93,6 +93,22 @@ div img.cus-img{
   text-shadow:2px 2px 10px white;
 }
 
+.container-main-videos{
+  float: left;
+  width: 900px;
+  margin-left: 90px;
+  margin-right: 20px;
+}
+
+.container-right-videos{
+  float: left;
+  width: 300px;
+  height: 352px;
+}
+
+.thumbnail-outer-container{
+  width:319px;
+}
 
 /* -start- masthead in home page */
 .about-container{

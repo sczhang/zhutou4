@@ -9,8 +9,8 @@
 </style>
 
 <!--begin from here-->
-<div class="container" ng-controller="VideosCntl" ng-init="init();">
-	<ol class="breadcrumb">
+<div class="container-main-videos container panel panel-primary" ng-controller="VideosCntl" ng-init="init();">
+	<ol class="breadcrumb" style="margin-top: 30px;">
 	  <li><a href="#">Home</a></li>
 	  <li style="cursor: default;" class="active">Videos</li>
 	</ol>
@@ -60,7 +60,7 @@
     <!-- filter by starts -->
   </div>
   
-  <div class="row col-sm-6 col-md-4" ng-repeat="video in videos | videoQuery : query | orderBy: orderProp | videoCategory: category">
+  <div class="row col-sm-6 col-md-4 thumbnail-outer-container" ng-repeat="video in videos | videoQuery : query | orderBy: orderProp | videoCategory: category">
       <div class="thumbnail cus-thumbnail">
         <img class="cus-img" ng-src="{{video.src}}" alt="...">
         <div class="caption mask">
@@ -73,4 +73,7 @@
   </div>
 
 </div>
-
+<div class="panel panel-primary container-right-videos">Advertisement</div>
+<div class="panel panel-primary container-right-videos">Recent Videos</div>
+<div class="panel panel-primary container-right-videos">Popular Videos</div>
+<div style="clear:both"></div>
