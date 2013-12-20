@@ -1,6 +1,4 @@
-<div class="videoDetailContainer container">
-
-<div class="row">
+<div class="videoDetailContainer container panel panel-primary">
 	<!-- <div class="col-md-4">
 		<ul style="position: fixed;" id="video-sidenav" class="nav">
 			<li>
@@ -16,7 +14,7 @@
 		</ul>
 	</div> -->
 
-	<ol class="breadcrumb">
+	<ol class="breadcrumb" style="margin-top: 30px;">
 	  <li><a href="#">Home</a></li>
 	  <li><a href="#/videos">Videos</a></li>
 	  <li class="active">{{video.name}}</li>
@@ -27,7 +25,7 @@
 	</div>
 
 	<div id="content-nav" class="videoDetailContent">
-		<iframe width="420" height="315" ng-src="{{trustSrc(video.src)}}" frameborder="0" allowfullscreen></iframe>
+		<iframe width="607" height="455" ng-src="{{trustSrc(video.src)}}" frameborder="0" allowfullscreen></iframe>
 	</div>
 	
 	<div class="videoDetailPagi" style="width: 100%;">
@@ -95,9 +93,11 @@
 	</div>
 </div>
 <!-- sample code ends -->
-	</div>
 </div>
-
+<div class="panel panel-primary container-right-videos">Advertisement</div>
+<div class="panel panel-primary container-right-videos">Recent Videos</div>
+<div class="panel panel-primary container-right-videos">Popular Videos</div>
+<div style="clear:both"></div>
 
 	
 
