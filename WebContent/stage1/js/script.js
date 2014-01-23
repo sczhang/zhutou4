@@ -188,6 +188,23 @@ function MainCntl($scope, $route, $sce, $location) {
     return $sce.trustAsResourceUrl(src);
   };
 
+  $scope.getNavClass = function(){
+	  if(this.tab.children)
+		  return "dropdown";
+	  else {
+		  if( ( "#" + $location.$$path == this.tab.url ) && ( $location.$$path == '/' ) )
+			  return "active";
+		  
+		  if ( 
+				  ( ("#" + $location.$$path ).indexOf( this.tab.url ) != -1 ) && 
+				  ( this.tab.url != '#/' ) 
+		  ) {
+			  return "active"; 
+		  }
+	      return "";  
+	  }
+  };
+  
   $scope.isActive = function(){
 	  
 	  if( ( "#" + $location.$$path == this.tab.url ) && ( $location.$$path == '/' ) )
