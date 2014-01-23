@@ -23,6 +23,10 @@ zhutou.config(function($routeProvider) {
   })
   .when('/Contact', {
 	    templateUrl: 'contactUs.html'
+  })
+  .when('/schedule',{
+  	templateUrl: 'schedule.html',
+  	controller: "ScheduleCntl"
   });
 });
 
@@ -239,8 +243,11 @@ function MainCntl($scope, $route, $sce, $location) {
       text:"Tutorials"
       , class: ""
     }
-    
-    
+    , {
+   	  url:"#/schedule",
+   	  text:"FCB Schedule"
+   	  , class: ""	
+    }    
     , {
         url:"some url", 
         text:"Tabs"
@@ -292,6 +299,9 @@ function SocialCntl($scope) {
   $scope.name = "SocialCntl";
 };
 
+function ScheduleCntl($scope) {
+  $scope.name = "ScheduleCntl";
+};
 
 zhutou.filter('videoQuery', function(){
   return function(input, query){
