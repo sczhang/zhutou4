@@ -10,8 +10,8 @@ zhutou.config(function($routeProvider) {
     controller: 'VideosCntl'
   })
   .when('/tutorials', {
-    templateUrl: 'social.html',
-    controller: 'SocialCntl'
+    templateUrl: 'tutoriallist.html',
+    controller: 'TutorialListCtrl'
   })
   .when('/projects', {
     templateUrl: 'primary.html',
@@ -24,13 +24,14 @@ zhutou.config(function($routeProvider) {
   .when('/Contact', {
 	    templateUrl: 'contactUs.html'
   })
-  .when('/schedule',{
+  .when('/Schedule', {
   	templateUrl: 'schedule.html',
   	controller: "ScheduleCntl"
   });
 });
 
-zhutou.controller('VideosCntl', ['$scope',
+zhutou
+.controller('VideosCntl', ['$scope',
   function($scope) {
     var videosource = [
       {
@@ -76,9 +77,7 @@ zhutou.controller('VideosCntl', ['$scope',
     ];
     
     $scope.videos = videosource;
-  }]);
-
-zhutou.controller('VideoDetailCntl', ['$scope', '$routeParams', 
+}]).controller('VideoDetailCntl', ['$scope', '$routeParams', 
 function ($scope, $routeParams){
 
   $routeParams.videoId = parseInt( $routeParams.videoId );
@@ -183,7 +182,16 @@ function ($scope, $routeParams){
 	  //twitter
 	  //!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="https://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");
   });
-}]);
+}])
+.controller('TutorialListCtrl', ['$scope', '$routeParams', 
+function ($scope, $routeParams){
+
+	console.log("TutorialListCtrl");
+//  $routeParams.videoId = parseInt( $routeParams.videoId );
+  
+}])
+
+;
 
 function MainCntl($scope, $route, $sce, $location) {
 
@@ -252,7 +260,7 @@ function MainCntl($scope, $route, $sce, $location) {
         url:"some url", 
         text:"Tabs"
         , class: ""
-        , children: [
+        /*, children: [
 	                   {
 	                	   url: "#/tab1",
 	                	   text: "Tab 1"
@@ -265,7 +273,7 @@ function MainCntl($scope, $route, $sce, $location) {
 	                	   url: "#/tab3",
 	                	   text: "Tab 3"
 	                   }
-                   ]
+                   ]*/
     
       }
     
