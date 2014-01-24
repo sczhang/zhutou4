@@ -374,6 +374,11 @@ div.footer ul li{
 	padding-bottom: 7px; 
 }
 
+.container, .container-view {
+	width: 980px;
+	margin: 0 auto;
+}
+
 
 /* schedule css */
 
@@ -391,9 +396,6 @@ div.footer ul li{
   cursor: default;
 }
 
-.container, .container-view {
-	width: 980px;
-	margin: 0 auto;
-}
+
 
 
