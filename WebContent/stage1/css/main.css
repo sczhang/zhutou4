@@ -1,3 +1,6 @@
+
+
+
 .cus-thumbnail{
   width:20em;
   height:13.7em;
@@ -340,6 +343,7 @@ div.footer{
 	border-top: 1px solid #ddd;
 	text-align: center;
 	margin: 10px auto;
+	clear: left;
 	/*
 	position: absolute;
 	bottom: 0;
@@ -370,6 +374,7 @@ div.footer ul li{
 	padding-bottom: 7px; 
 }
 
+
 /* schedule css */
 
 .schedule-container {
@@ -385,3 +390,10 @@ div.footer ul li{
   box-shadow: 1px 1px 2px #e6e6e6;
   cursor: default;
 }
+
+.container, .container-view {
+	width: 980px;
+	margin: 0 auto;
+}
+
+

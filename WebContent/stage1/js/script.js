@@ -10,8 +10,8 @@ zhutou.config(function($routeProvider) {
     controller: 'VideosCntl'
   })
   .when('/tutorials', {
-    templateUrl: 'social.html',
-    controller: 'SocialCntl'
+    templateUrl: 'tutoriallist.html',
+    controller: 'TutorialListCtrl'
   })
   .when('/projects', {
     templateUrl: 'primary.html',
@@ -24,13 +24,14 @@ zhutou.config(function($routeProvider) {
   .when('/Contact', {
 	    templateUrl: 'contactUs.html'
   })
-  .when('/schedule',{
+  .when('/Schedule', {
   	templateUrl: 'schedule.html',
   	controller: "ScheduleCntl"
   });
 });
 
-zhutou.controller('VideosCntl', ['$scope',
+zhutou
+.controller('VideosCntl', ['$scope',
   function($scope) {
     var videosource = [
       {
@@ -76,9 +77,7 @@ zhutou.controller('VideosCntl', ['$scope',
     ];
     
     $scope.videos = videosource;
-  }]);
-
-zhutou.controller('VideoDetailCntl', ['$scope', '$routeParams', 
+}]).controller('VideoDetailCntl', ['$scope', '$routeParams', 
 function ($scope, $routeParams){
 
   $routeParams.videoId = parseInt( $routeParams.videoId );
@@ -183,7 +182,19 @@ function ($scope, $routeParams){
 	  //twitter
 	  //!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="https://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");
   });
-}]);
+}])
+.controller('TutorialListCtrl', ['$scope', '$routeParams', 
+function ($scope, $routeParams){
+
+  console.log("TutorialListCtrl");
+	
+  $scope.$on("$routeChangeSuccess", function (scope, next, current) {
+    $scope.transitionState = "active";
+  });
+	
+}])
+
+;
 
 function MainCntl($scope, $route, $sce, $location) {
 
@@ -191,9 +202,29 @@ function MainCntl($scope, $route, $sce, $location) {
   $scope.trustSrc = function(src) {
     return $sce.trustAsResourceUrl(src);
   };
+  
+  console.log( $location.path() );
 
-  $scope.isActive = function(){
+  $scope.getNavClass = function(){
 	  
+	  if(this.tab.children)
+		  return "dropdown";
+	  else {
+		  if( ( "#" + $location.$$path == this.tab.url ) && ( $location.$$path == '/' ) )
+			  return "active";
+		  
+		  if ( 
+				  ( ("#" + $location.$$path ).indexOf( this.tab.url ) != -1 ) && 
+				  ( this.tab.url != '#/' ) 
+		  ) {
+			  return "active"; 
+		  }
+	      return "";  
+	  }
+  };
+  
+  $scope.isActive = function(){
+	
 	  if( ( "#" + $location.$$path == this.tab.url ) && ( $location.$$path == '/' ) )
 		  return true;
 	  
@@ -205,6 +236,7 @@ function MainCntl($scope, $route, $sce, $location) {
 	  }
       return false;  
   };
+  
   $scope.tabs = [
     {
       url:"#/", 
@@ -214,7 +246,7 @@ function MainCntl($scope, $route, $sce, $location) {
     {
       url:"#/videos", 
       text:"Videos"
-      , class: ""
+      , class: "active"
     },
     {
       url:"#/projects", 
@@ -257,6 +289,12 @@ function MainCntl($scope, $route, $sce, $location) {
   $scope.$on("$routeChangeSuccess", function (scope, next, current) {
       $scope.transitionState = "active";
   });
+  
+  function setActiveTab(){
+	  var path = $location.path();
+	  
+	  
+  }
 };
 
 
