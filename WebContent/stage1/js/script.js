@@ -451,4 +451,49 @@ zhutou.filter('videoQuery', function(){
   };
 })
 
+.directive('codesinppet', ['$http', '$templateCache', '$location', function($http, $templateCache, $location){
+	
+	// http://demo.stanleyhlng.com/prettify-js/?id=bootstrap-light
+	
+	
+	function htmlSanitize(s) {
+	  return s.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
+	};
+	
+	return {
+		restrict: "EA",
+		template: "<div directive><pre class=\"prettyprint linenums\"></pre></div>",
+//		scope: {
+//			tplUrl: "@"
+//		},
+		link: function(scope, el, attrs){
+			console.log("linking");
+			
+			console.log($location.host());
+			console.log($location.path());
+			
+//			$location.hash("123123");
+			
+			var k = $http.get( 
+//					attrs.tplUrl,
+					'codetemplate/schedule.html',
+					
+					{ cache: $templateCache } ).success(function(html) {
+		        console.log("loading done: " + html);
+		        
+//		        var htmlEl = compile(html);
+		        
+		        var htmlEl = htmlSanitize(html);
+		        
+		        el.find("pre").append(htmlEl);
+		        
+		        prettyPrint();
+		        
+		      });
+			
+//			console.log("k: " + k);
+		}
+	}
+}])
+
 ;
