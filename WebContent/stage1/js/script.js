@@ -186,9 +186,12 @@ function ($scope, $routeParams){
 .controller('TutorialListCtrl', ['$scope', '$routeParams', 
 function ($scope, $routeParams){
 
-	console.log("TutorialListCtrl");
-//  $routeParams.videoId = parseInt( $routeParams.videoId );
-  
+  console.log("TutorialListCtrl");
+	
+  $scope.$on("$routeChangeSuccess", function (scope, next, current) {
+    $scope.transitionState = "active";
+  });
+	
 }])
 
 ;
@@ -199,8 +202,11 @@ function MainCntl($scope, $route, $sce, $location) {
   $scope.trustSrc = function(src) {
     return $sce.trustAsResourceUrl(src);
   };
+  
+  console.log( $location.path() );
 
   $scope.getNavClass = function(){
+	  
 	  if(this.tab.children)
 		  return "dropdown";
 	  else {
@@ -218,7 +224,7 @@ function MainCntl($scope, $route, $sce, $location) {
   };
   
   $scope.isActive = function(){
-	  
+	
 	  if( ( "#" + $location.$$path == this.tab.url ) && ( $location.$$path == '/' ) )
 		  return true;
 	  
@@ -230,6 +236,7 @@ function MainCntl($scope, $route, $sce, $location) {
 	  }
       return false;  
   };
+  
   $scope.tabs = [
     {
       url:"#/", 
@@ -239,7 +246,7 @@ function MainCntl($scope, $route, $sce, $location) {
     {
       url:"#/videos", 
       text:"Videos"
-      , class: ""
+      , class: "active"
     },
     {
       url:"#/projects", 
@@ -260,7 +267,7 @@ function MainCntl($scope, $route, $sce, $location) {
         url:"some url", 
         text:"Tabs"
         , class: ""
-        /*, children: [
+        , children: [
 	                   {
 	                	   url: "#/tab1",
 	                	   text: "Tab 1"
@@ -273,7 +280,7 @@ function MainCntl($scope, $route, $sce, $location) {
 	                	   url: "#/tab3",
 	                	   text: "Tab 3"
 	                   }
-                   ]*/
+                   ]
     
       }
     
@@ -282,6 +289,12 @@ function MainCntl($scope, $route, $sce, $location) {
   $scope.$on("$routeChangeSuccess", function (scope, next, current) {
       $scope.transitionState = "active";
   });
+  
+  function setActiveTab(){
+	  var path = $location.path();
+	  
+	  
+  }
 };
 
 
