@@ -71,10 +71,10 @@
 		  </div>
 		  <div class="collapse navbar-collapse">
 		    <ul class="nav navbar-nav">
-		      <li class="" ng-repeat="tab in tabs">
-		      		<a ng-if="!tab.children" href={{tab.url}} data-toggle="tab">{{tab.text}}</a>
+		      <li ng-class="{ active: isActive() }" ng-repeat="tab in tabs">
+		      		<a ng-if="!tab.children" href={{tab.url}} data-target="#" data-toggle="tab">{{tab.text}}</a>
 		      		
-		      		<a ng-if="tab.children" href={{tab.url}} data-toggle="dropdown">
+		      		<a ng-if="tab.children" href={{tab.url}} data-target="#" data-toggle="dropdown">
 		      			{{tab.text}}
 		      			<b class="caret"></b>
 		      		</a>
