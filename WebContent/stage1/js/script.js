@@ -24,7 +24,7 @@ zhutou.config(function($routeProvider) {
   .when('/Contact', {
 	    templateUrl: 'contactUs.html'
   })
-  .when('/Schedule', {
+  .when('/schedule', {
   	templateUrl: 'schedule.html',
   	controller: "ScheduleCntl"
   });
@@ -193,6 +193,66 @@ function ($scope, $routeParams){
   });
 	
 }])
+.controller('ScheduleCntl', ['$scope', '$routeParams',
+function ($scope, $routeParams){
+	
+	//temporary json for fcb schedule module
+	//will be removed once database and server side implementation finish
+	var scheduleJSON = {
+		"matches":[
+			{
+				"opponent":"Malaga",
+				"competition":"La Liga",
+				"atHome":true,
+				"roundinfo":"Round 21",
+				"time":"Sun 01.26.2014 21:00"
+			},
+			{
+				"opponent":"Levante",
+				"competition":"Copa del Rey",
+				"atHome":false,
+				"roundinfo":"Quarterfinal 2nd leg",
+				"time":"Wed 01.29.2014 22:00"
+			},
+			{
+				"opponent":"Valencia",
+				"competition":"La Liga",
+				"atHome":true,
+				"roundinfo":"Round 22",
+				"time":"Sun 02.01.2014 16:00"
+			},
+			{
+				"opponent":"Sevilla",
+				"competition":"La Liga",
+				"atHome":false,
+				"roundinfo":"Round 23",
+				"time":"Wed 02.09.2014 21:00"
+			},
+			{
+				"opponent":"Rayo",
+				"competition":"La Liga",
+				"atHome":true,
+				"roundinfo":"Round 24",
+				"time":"Sun 02.15.2014 21:00"
+			}	
+		]
+	};
+	
+	console.log("schedule controller");
+		
+	$scope.init = function(){
+		$scope.name = "ScheduleCntl";
+		$scope.schedulejson = scheduleJSON;
+		//generate li by jquery
+		var $ul = $('<ul></ul>');
+		$.each(scheduleJSON.matches, function(i,match){			
+			$ul.append('<li>'+match.opponent+'</li>');
+		});		
+		var container = document.getElementsByClassName("schedule-container")[0];
+		$ul.appendTo(container);
+	};
+}])
+
 
 ;
 
@@ -290,93 +350,32 @@ function MainCntl($scope, $route, $sce, $location) {
       $scope.transitionState = "active";
   });
   
-  function setActiveTab(){
-	  var path = $location.path();
-	  
-	  
-  }
 };
 
 
 function HomeCntl($scope){
 
-};
+}
 
 function VideosCntl($scope) {
 
+  console.log("video controller");
+	
   $scope.init = function(){
     $scope.name = "VideosCntl";
     $scope.orderProp = "date";
     $scope.query = "";
     $scope.category = "all";
   };
-};
+}
 
 function PrimaryCntl($scope) {
   $scope.name = "PrimaryCntl";
-};
+}
 
 function SocialCntl($scope) {
   $scope.name = "SocialCntl";
-};
-
-//temporary json for fcb schedule module
-//will be removed once database and server side implementation finish
-var scheduleJSON = {
-	"matches":[
-		{
-			"opponent":"Malaga",
-			"competition":"La Liga",
-			"atHome":true,
-			"roundinfo":"Round 21",
-			"time":"Sun 01.26.2014 21:00"
-		},
-		{
-			"opponent":"Levante",
-			"competition":"Copa del Rey",
-			"atHome":false,
-			"roundinfo":"Quarterfinal 2nd leg",
-			"time":"Wed 01.29.2014 22:00"
-		},
-		{
-			"opponent":"Valencia",
-			"competition":"La Liga",
-			"atHome":true,
-			"roundinfo":"Round 22",
-			"time":"Sun 02.01.2014 16:00"
-		},
-		{
-			"opponent":"Sevilla",
-			"competition":"La Liga",
-			"atHome":false,
-			"roundinfo":"Round 23",
-			"time":"Wed 02.09.2014 21:00"
-		},
-		{
-			"opponent":"Rayo",
-			"competition":"La Liga",
-			"atHome":true,
-			"roundinfo":"Round 24",
-			"time":"Sun 02.15.2014 21:00"
-		}	
-	]
 }
-
-
-function ScheduleCntl($scope) {
-		
-	$scope.init = function(){
-		$scope.name = "ScheduleCntl";
-		$scope.schedulejson = scheduleJSON;
-		//generate li by jquery
-		var $ul = $('<ul></ul>');
-		$.each(scheduleJSON.matches, function(i,match){			
-			$ul.append('<li>'+match.opponent+'</li>');
-		});		
-		var container = document.getElementsByClassName("schedule-container")[0];
-		$ul.appendTo(container);
-	};
-};
 
 zhutou.filter('videoQuery', function(){
   return function(input, query){
