@@ -481,7 +481,9 @@ zhutou.filter('videoQuery', function(){
 		        
 		        el.find("pre").append(htmlEl);
 		        
-		        prettyPrint();
+		        setTimeout(function(){
+		        	prettyPrint();
+		        });
 		        
 		      });
 		}
