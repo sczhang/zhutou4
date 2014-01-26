@@ -27,7 +27,14 @@ zhutou.config(function($routeProvider) {
   .when('/schedule', {
   	templateUrl: 'schedule.html',
   	controller: "ScheduleCntl"
-  });
+  })
+  .when('/tutorial/:tutorialId', {
+    templateUrl: 'tutorialdetail.html',
+    controller: 'TutorialDetailCtrl'
+  })
+  
+  
+  ;
 });
 
 zhutou
