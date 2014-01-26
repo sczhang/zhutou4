@@ -386,19 +386,92 @@ div.footer ul li{
 /* schedule css */
 
 .schedule-container {
-  width: 900px;
-  height: 600px;
-  margin: 0 auto;
-  border: 30px solid #000;
-  overflow: hidden;
-  position: relative;
-  text-align: center;
-  -webkit-box-shadow: 1px 1px 2px #e6e6e6;
-  -moz-box-shadow: 1px 1px 2px #e6e6e6;
-  box-shadow: 1px 1px 2px #e6e6e6;
-  cursor: default;
+	width:1000px;
+	height:500px;
+	border:10px double #000;
+	position:relative;
+	overflow:auto;
+	text-align:center;
+	-webkit-box-shadow:1px 1px 2px #e6e6e6;
+	-moz-box-shadow:1px 1px 2px #e6e6e6;
+	box-shadow:1px 1px 2px #e6e6e6;
+	cursor:default;
+	margin:0 auto;
 }
 
+.schedule-container li {
+	list-style:none;
+	width:850px;
+	height:83px;
+	overflow:hidden;
+	position:relative;
+	text-align:left;
+	margin: 0 auto;
+	left: -20px;
+}
 
+.schedule-cell {
+	width:850px;
+	height:80px;
+	border:1px dashed #999;
+	margin:3px auto;
+	padding:5px 5px;
+}.schedule-cell:hover{
+	background-color:#F0F0F0;
+}
 
+.schedule-cell img {
+	float:left;
+}
 
+.info-cell {
+	float:right;
+	width: 750px;
+	text-align:left;
+}
+
+.info-cell .text-cell{
+	float:left;
+}
+
+.info-cell .match-title{
+	text-align:center;
+	font-size: 24px;
+}
+
+.info-cell .match-info{
+	display:inline-block;
+	padding:0 5px 0 0;
+	font-family: tahoma;
+}
+
+.info-cell .match-time{
+	display:inline-block;
+	padding:0 20px;
+	font-family:"Arial Black";
+}
+
+.schedule-btn{
+	float:right;
+	left:30px;
+	padding:auto 30px;
+	margin: auto 30px;
+	font-family:Arial;
+	font-size:20px;
+	font-weight:bold;
+	font-style:normal;
+	text-decoration:none;
+	text-align:center;
+	height:55px;
+	line-height:45px;
+	width:127px;
+	color: #666666;
+	background-color: #f0c911;	
+	border-radius: 20px;
+	-webkit-border-radius: 20px;
+	-moz-border-radius: 20px;
+	border:5px solid #e65f44;	
+}.schedule-btn:hover {
+	background-color:#E6E6E6;
+	text-decoration:none;
+}
