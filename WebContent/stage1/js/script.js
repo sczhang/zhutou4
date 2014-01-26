@@ -236,18 +236,59 @@ function ($scope, $routeParams){
 				"time":"Sun 02.15.2014 21:00"
 			}	
 		]
+	};	
+	
+	$scope.getCompImageSrc = function(competition){
+		if(competition === "La Liga")
+		{
+			return "laliga.jpg";
+		}
+		else if(competition === "Copa del Rey")
+		{
+			return "copa.png";
+		}
+		else if(competition === "Champions League")
+		{
+			return "ecl.jpg";
+		}
+		return "default.png";
 	};
 	
-	console.log("schedule controller");
+	$scope.getMatchTitle = function(match){
+		return match.atHome ? "Barcelona v.s. "+match.opponent: match.opponent + " v.s. Barcelona";
+	};
+	
+	$scope.generateCell = function(match)
+	{
+		var cellhtml = "";
+		cellhtml += '<li>';
+		cellhtml += '<div class="schedule-cell">';
+		cellhtml += '<img src="imgs/'+$scope.getCompImageSrc(match.competition)+'"></img>';
+		cellhtml += '<div class="info-cell">';
+		cellhtml += '<div class="text-cell">';
+		cellhtml += '<div><span class="match-title">'+$scope.getMatchTitle(match)+'<span></div>';
+		cellhtml += '<span class="match-info">'+match.roundinfo+'<span>';
+		cellhtml += '<span class="match-time">'+match.time+'<span>';
+		cellhtml += '</div>';
+		cellhtml += '<a href="#" class="schedule-btn">Buy ticket</a>';		
+		cellhtml += '<a href="#" class="schedule-btn">Preview</a>';
+		cellhtml += '</div>';
+		cellhtml += '</div>';
+		cellhtml += '</li>';
+		return cellhtml;
+	};
 		
 	$scope.init = function(){
 		$scope.name = "ScheduleCntl";
 		$scope.schedulejson = scheduleJSON;
-		//generate li by jquery
+		//generate li from json
 		var $ul = $('<ul></ul>');
-		$.each(scheduleJSON.matches, function(i,match){			
-			$ul.append('<li>'+match.opponent+'</li>');
-		});		
+		var lis_html = "";
+		for(var i in scheduleJSON.matches)
+		{
+			lis_html += $scope.generateCell(scheduleJSON.matches[i]);
+		}	
+		$ul.html(lis_html);			
 		var container = document.getElementsByClassName("schedule-container")[0];
 		$ul.appendTo(container);
 	};
