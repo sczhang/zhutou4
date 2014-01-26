@@ -259,7 +259,40 @@ function ($scope, $routeParams){
 		$ul.appendTo(container);
 	};
 }])
-
+.controller('TutorialDetailCtrl', ['$scope', '$http', '$q', '$routeParams', function( $scope, $http, $q, $routeParams ){
+	console.log('TutorialDetailCtrl');
+	var tId = $routeParams.tutorialId;
+	
+	var tutorials = [
+		                 {
+		                	 id: '0',
+		                	 directiveId: '0',
+		                	 codesinppetUrl: 'schedule.html'
+		                 },
+		                 {
+		                	 id: '1',
+		                	 directiveId: '1',
+		                	 codesinppetUrl: 'schedule.html'
+		                 }
+	                 
+	                 ];
+	
+	switch(tId)
+	{
+		case 0:
+		
+			break;
+		case 1:
+			
+			break;
+		default:
+			
+			
+	}
+	
+	console.log('tid: ' + tId);
+	
+}])
 
 ;
 
