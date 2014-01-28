@@ -87,7 +87,7 @@ ol.linenums li {
 /* Put a border around prettyprinted code snippets. */
 pre.prettyprint {
   background-color: #F7F7F9;
-  padding: 10px;
+  /* padding: 10px; */
   border: 1px solid #E1E1E8; }
 
 pre.prettyprint.linenums {
@@ -97,7 +97,7 @@ pre.prettyprint.linenums {
 ol.linenums {
   color: #1E347B;
   padding: 0;
-  margin: 0 0 0 40px; }
+  margin: 0 0 0 50px; }
 
 ol.linenums li {
   color: #BEBEC5;
