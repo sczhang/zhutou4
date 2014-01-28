@@ -60,6 +60,33 @@ h2 {
 	padding-left: 50px;
 }
 
+.example {
+	margin-left: 0;
+	margin-right: 0;
+	background-color: #fff;
+	border-width: 1px;
+	border-color: #ddd;
+	border-radius: 4px 4px 0 0;
+	box-shadow: none;
+	position: relative;
+	padding: 45px 15px 15px;
+	margin: 0 -15px 15px;
+	border-style: solid;
+	margin-bottom: 50px;
+}
+
+.example:after {
+	content: "Example";
+	position: absolute;
+	top: 15px;
+	left: 15px;
+	font-size: 12px;
+	font-weight: bold;
+	color: #bbb;
+	text-transform: uppercase;
+	letter-spacing: 1px;
+}
+
 </style>
 
 <ol class="breadcrumb">
@@ -90,7 +117,11 @@ h2 {
       <div class="container-code">
       
       	<h1 class="page-header">Directive 1</h1>
-        <h2 class="title-1">1. First<small>i love zk</small></h2>
+      	
+      	<div class="example">
+      		12312
+      	</div>
+        <h2 class="title-1">1. First Step<small>first step</small></h2>
         <h3>h3</h3>
         <p>【大帝YY天梯欢乐行】第35期 帝王79%胜</p>
         <div codesinppet tpl-url="schedule.html"></div>				
