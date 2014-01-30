@@ -530,10 +530,7 @@ zhutou.filter('videoQuery', function(){
 					'codetemplate/' + snippet,
 					
 					{ cache: $templateCache } ).success(function(html) {
-		        // console.log("loading done: " + html);
-		        
 		        var htmlEl = htmlSanitize(html);
-		        
 		        el.find("pre").append(htmlEl);
 		        
 		        setTimeout(function(){
@@ -555,7 +552,7 @@ function getTutorialDetailTpl(tId){
     "code-example-1": "code-example-1.html",
     "default": "tutorialdetail.html"
   }
-  
+
   return TUTORIAL_DETAIL_MAP[tId];
 }
 
