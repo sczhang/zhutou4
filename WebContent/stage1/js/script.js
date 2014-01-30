@@ -29,8 +29,13 @@ zhutou.config(function($routeProvider) {
   	controller: "ScheduleCntl"
   })
   .when('/tutorial/:tutorialId', {
-    templateUrl: 'tutorialdetail.html',
-    controller: 'TutorialDetailCtrl'
+    controller: 'TutorialDetailCtrl',
+    templateUrl: function(params){
+      var tid = params.tutorialId;
+      
+      return getTutorialDetailTpl(tid);
+    }
+
   })
   
   
@@ -304,34 +309,10 @@ function ($scope, $routeParams){
 	console.log('TutorialDetailCtrl');
 	var tId = $routeParams.tutorialId;
 	
-	var tutorials = [
-		                 {
-		                	 id: '0',
-		                	 directiveId: '0',
-		                	 codesinppetUrl: 'schedule.html'
-		                 },
-		                 {
-		                	 id: '1',
-		                	 directiveId: '1',
-		                	 codesinppetUrl: 'schedule.html'
-		                 }
-	                 
-	                 ];
-	
-	switch(tId)
-	{
-		case 0:
-		
-			break;
-		case 1:
-			
-			break;
-		default:
-			
-			
-	}
-	
-	console.log('tid: ' + tId);
+  $scope.$on('$viewContentLoaded', function() {
+    console.log("viewContentLoaded");
+  });
+
 	
 }])
 
@@ -549,7 +530,7 @@ zhutou.filter('videoQuery', function(){
 					'codetemplate/' + snippet,
 					
 					{ cache: $templateCache } ).success(function(html) {
-		        console.log("loading done: " + html);
+		        // console.log("loading done: " + html);
 		        
 		        var htmlEl = htmlSanitize(html);
 		        
@@ -565,3 +546,20 @@ zhutou.filter('videoQuery', function(){
 }])
 
 ;
+
+
+function getTutorialDetailTpl(tId){
+
+  var TUTORIAL_DETAIL_MAP = {
+    "tutorial-1": "tutorialdetail.html",
+    "code-example-1": "code-example-1.html",
+    "default": "tutorialdetail.html"
+  }
+  
+  return TUTORIAL_DETAIL_MAP[tId];
+}
+
+
+
+
+
