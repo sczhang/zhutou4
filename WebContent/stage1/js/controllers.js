@@ -1,57 +1,4 @@
-var zhutou = angular.module('zhutou',  [
-                                        
-                'zhutou.filters', 'zhutou.directives', 'ngRoute', 'ngSanitize'
-                
-                ]);
-
-zhutou.config(function($routeProvider) {
-  $routeProvider.when('/', {
-    templateUrl: 'home.html',
-    controller: "HomeCntl"
-  })
-  .when('/videos', {
-    templateUrl: 'videoList.html',
-    controller: 'VideosCntl'
-  })
-  .when('/tutorials', {
-    templateUrl: 'tutoriallist.html',
-    controller: 'TutorialListCtrl'
-  })
-  .when('/projects', {
-    templateUrl: 'primary.html',
-    controller: 'PrimaryCntl'
-  })
-  .when('/videos/:videoId', {
-    templateUrl: 'videoDetail.html',
-    controller: "VideoDetailCntl"
-  })
-  .when('/Contact', {
-	    templateUrl: 'contactUs.html'
-  })
-  .when('/schedule', {
-  	templateUrl: 'schedule.html',
-  	controller: "ScheduleCntl"
-  })
-  .when('/tutorial/:tutorialId', {
-    controller: 'TutorialDetailCtrl',
-    templateUrl: function(params){
-      var tid = params.tutorialId;
-      
-      return getTutorialDetailTpl(tid);
-    }
-
-  })
-  .when('/tag/:tagname', {
-    controller: 'TagContentListCtrl',
-    templateUrl: 'tutoriallist.html'
-  })
-  
-  
-  ;
-});
-
-zhutou
-.controller('VideosCntl', ['$scope',
+angular.module('zhutou.controllers', []).controller('VideosCntl', ['$scope',
   function($scope) {
     var videosource = [
       {
@@ -335,12 +282,7 @@ function ($scope, $routeParams){
 
   
 }])
-
-
-
-;
-
-function MainCntl($scope, $route, $sce, $location) {
+.controller('MainCntl', ['$scope', '$http', '$route', '$sce', '$location', function($scope, $http, $route, $sce, $location) {
 
   //utility method
   $scope.trustSrc = function(src) {
@@ -434,15 +376,15 @@ function MainCntl($scope, $route, $sce, $location) {
       $scope.transitionState = "active";
   });
   
-};
+}])
 
 
-function HomeCntl($scope){
+.controller('HomeCntl', ['$scope', function($scope) {
+	
+}])
 
-}
 
-function VideosCntl($scope) {
-
+.controller('VideosCntl', ['$scope', function($scope) {
   console.log("video controller");
 	
   $scope.init = function(){
@@ -451,29 +393,25 @@ function VideosCntl($scope) {
     $scope.query = "";
     $scope.category = "all";
   };
-}
+}])
 
-function PrimaryCntl($scope) {
-  $scope.name = "PrimaryCntl";
-}
+.controller('PrimaryCntl', ['$scope', function($scope) {
+	$scope.name = "PrimaryCntl";
+}])
 
-function SocialCntl($scope) {
-  $scope.name = "SocialCntl";
-}
+.controller('SocialCntl', ['$scope', function($scope) {
+	$scope.name = "SocialCntl";
+}])
 
+;
 
-function getTutorialDetailTpl(tId){
+	function getTutorialDetailTpl(tId){
 
-  var TUTORIAL_DETAIL_MAP = {
-    "tutorial-1": "tutorialdetail.html",
-    "code-example-1": "code-example-1.html",
-    "default": "tutorialdetail.html"
-  };
+	  var TUTORIAL_DETAIL_MAP = {
+	    "tutorial-1": "tutorialdetail.html",
+	    "code-example-1": "code-example-1.html",
+	    "default": "tutorialdetail.html"
+	  };
 
-  return TUTORIAL_DETAIL_MAP[tId];
-}
-
-
-
-
-
+	  return TUTORIAL_DETAIL_MAP[tId];
+	}
