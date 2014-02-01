@@ -2,7 +2,7 @@ var zhutou = angular.module('zhutou',  [
                                         
                 'zhutou.filters', 'zhutou.directives', 'ngRoute', 'ngSanitize'
                 
-                ])
+                ]);
 
 zhutou.config(function($routeProvider) {
   $routeProvider.when('/', {
@@ -468,7 +468,7 @@ function getTutorialDetailTpl(tId){
     "tutorial-1": "tutorialdetail.html",
     "code-example-1": "code-example-1.html",
     "default": "tutorialdetail.html"
-  }
+  };
 
   return TUTORIAL_DETAIL_MAP[tId];
 }
