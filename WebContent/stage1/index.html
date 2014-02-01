@@ -70,35 +70,26 @@
 
 </body>
 
+<!-- JQuery libs -->
 <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+
+<!-- Angular libs -->
 <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.5/angular.min.js"></script>
 <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/angularjs/1.2.0/angular-route.min.js"></script>
-<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.0rc1/angular-sanitize.min.js""></script>
-<script type="text/javascript" src="js/script.js"></script>
-<script type="text/javascript" src="js/prettify.js"></script>
-<script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
-<!-- Latest compiled and minified JavaScript -->
+<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.0rc1/angular-sanitize.min.js">
+</script>
+
+<!-- Bootstrap libs -->
 <script src="http://netdna.bootstrapcdn.com/bootstrap/3.0.3/js/bootstrap.min.js"></script>
 
-<script>
-	
-	$( document ).ready(function() {		
-	  function html(s) {
-	      return s.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
-	    };
 
-	  var theHtml = $('.navbar').html().trim();
+<!-- zhutou Angular lib -->
+<script type="text/javascript" src="js/filters.js"></script>
+<script type="text/javascript" src="js/script.js"></script>
+<script type="text/javascript" src="js/prettify.js"></script>
 
-	  var quineHtml = html( theHtml );
 
-	  $('#quine').html(quineHtml);
-	  
-	  prettyPrint();
-	});
-	
-	
-	
-</script>
+
 
 
 </html>
