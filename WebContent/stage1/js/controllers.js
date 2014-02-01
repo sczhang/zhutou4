@@ -405,13 +405,14 @@ function ($scope, $routeParams){
 
 ;
 
-	function getTutorialDetailTpl(tId){
 
-	  var TUTORIAL_DETAIL_MAP = {
-	    "tutorial-1": "tutorialdetail.html",
-	    "code-example-1": "code-example-1.html",
-	    "default": "tutorialdetail.html"
-	  };
+function getTutorialDetailTpl(tId){
 
-	  return TUTORIAL_DETAIL_MAP[tId];
-	}
+  var TUTORIAL_DETAIL_MAP = {
+    "tutorial-1": "tutorialdetail.html",
+    "code-example-1": "code-example-1.html",
+    "default": "tutorialdetail.html"
+  };
+
+  return TUTORIAL_DETAIL_MAP[tId];
+}
