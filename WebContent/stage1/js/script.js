@@ -37,6 +37,10 @@ zhutou.config(function($routeProvider) {
     }
 
   })
+  .when('/tag/:tagname', {
+    controller: 'TagContentListCtrl',
+    templateUrl: 'tutoriallist.html'
+  })
   
   
   ;
@@ -315,6 +319,20 @@ function ($scope, $routeParams){
 
 	
 }])
+.controller('TagContentListCtrl', ['$scope', '$http', '$q', '$routeParams', function( $scope, $http, $q, $routeParams ){
+  console.log('TagContentListCtrl');
+  var tagname = $routeParams.tagname;
+  
+  console.log("tagname " + tagname);
+
+  $scope.$on('$viewContentLoaded', function() {
+    console.log("viewContentLoaded");
+  });
+
+  
+}])
+
+
 
 ;
 
