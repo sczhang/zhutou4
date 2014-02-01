@@ -69,4 +69,7 @@ angular.module('zhutou.filters', []).filter('videoQuery', function(){
 
     return out;
   };
-});
+})
+
+
+;
