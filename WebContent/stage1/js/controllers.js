@@ -273,9 +273,12 @@ function ($scope, $routeParams){
 .controller('TagContentListCtrl', ['$scope', '$http', '$q', '$routeParams', function( $scope, $http, $q, $routeParams ){
   console.log('TagContentListCtrl');
   var tagname = $routeParams.tagname;
-  
-  console.log("tagname " + tagname);
 
+  // var tutorials = zhutou.DS.tutorials;
+  var taggedTutorials = zhutou.MODEL.getAllTutorialsByTag(tagname);
+
+  console.log(taggedTutorials);
+  
   $scope.$on('$viewContentLoaded', function() {
     console.log("viewContentLoaded");
   });
