@@ -14,12 +14,13 @@ var app = express();
 app.configure(function() {
   app.use(express.static(process.cwd() + "/generated"));
   app.use(express.bodyParser());
+  app.use(express.static(__dirname + "/../"));
 });
-
-app.all("/",function(req,res){
-	res.render("../index.html");
-});
-
+/*
+ * fix same origin issue, which is currently not required.
+ * 
+ */
+/*
 app.all('*', function(req, res, next){
   if (!req.get('Origin')) return next();
   // use "*" here to accept any origin
@@ -29,7 +30,10 @@ app.all('*', function(req, res, next){
   if ('OPTIONS' == req.method) return res.send(200);
   next();
 });
+*/
+app.listen(process.env.PORT || 8099);
 
+/*
 app.get('/api/v1/items', function(req, res){
 	connection.query("SELECT * from cyantest.displayItem", function(err, rows){
         if(err != null) {
@@ -82,5 +86,4 @@ app.post('/api/v1/item/:id',function(req,res){
         }       
     });
 }); 
-
-app.listen(process.env.PORT || 8099);
+*/
