@@ -6,23 +6,17 @@ CREATE TABLE IF NOT EXISTS `zhutou4`.`fcb1899_team` (
   `abbr` VARCHAR(3) NULL DEFAULT NULL,
   `homeground` VARCHAR(45) NOT NULL,
   PRIMARY KEY (`id`));
-  
-  
-CREATE TABLE IF NOT EXISTS `zhutou4`.`fcb1899_match` (
-  `id` INT NOT NULL AUTO_INCREMENT,
-  `competition` INT NOT NULL,
-  `round` INT NOT NULL,
-  `ground` VARCHAR(45) NULL DEFAULT 'HOME',
-  PRIMARY KEY (`id`));
 
 CREATE TABLE IF NOT EXISTS `zhutou4`.`fcb1899_schedule` (
-  `id` INT(11) NOT NULL AUTO_INCREMENT,
-  `homeId` INT(11) NOT NULL,
-  `time` VARCHAR(15) NOT NULL,
-  `matchId` INT(11) NOT NULL,
-  `awayId` INT(11) NOT NULL,
-  `homeScore` INT(11) NOT NULL,
-  `awayScore` INT(11) NOT NULL,
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `homeId` int(11) NOT NULL,
+  `time` varchar(15) NOT NULL,
+  `awayId` int(11) NOT NULL,
+  `homeScore` int(11) NOT NULL DEFAULT '-1',
+  `awayScore` int(11) NOT NULL DEFAULT '-1',
+  `competition` int(11) NOT NULL,
+  `round` int(11) NOT NULL,
+  `reportId` int(11) NOT NULL DEFAULT '0',
   PRIMARY KEY (`id`));
   
 INSERT INTO `zhutou4`.`fcb1899_team` (`id`, `fullname`, `abbr`, `homeground`) VALUES ('1', 'FC Barcelona', 'FCB', 'Camp Nou');
@@ -51,3 +45,7 @@ INSERT INTO `zhutou4`.`fcb1899_team` (`id`, `fullname`, `abbr`, `homeground`) VA
 INSERT INTO `zhutou4`.`fcb1899_team` (`id`, `fullname`, `abbr`, `homeground`) VALUES ('24', 'Celtic', 'CEL', 'Celtic Park');
 INSERT INTO `zhutou4`.`fcb1899_team` (`id`, `fullname`, `abbr`, `homeground`) VALUES ('25', 'Manchester City', 'MC', 'Etihad Stadium');
 INSERT INTO `zhutou4`.`fcb1899_team` (`id`, `fullname`, `abbr`, `homeground`) VALUES ('26', 'Cartegena', 'CTG', 'Cartagonova');
+
+INSERT INTO `zhutou4`.`fcb1899_schedule` (`id`, `homeId`, `awayId`, `time`, `homeScore`, `awayScore`, `competition`, `round`, `reportId`) VALUES (1, 1, 21, '201308022130', 8, 0, 7, 1, 33754);
+INSERT INTO `zhutou4`.`fcb1899_schedule` (`id`, `homeId`, `awayId`, `time`, `homeScore`, `awayScore`, `competition`, `round`, `reportId`) VALUES (2, 1, 8, '201308181900', 7, 0, 1, 1, 33831);
+
